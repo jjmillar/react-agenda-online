@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&family=Sassy+Frass&display=swap');
+
+$ico-color: white;
+$padding: 10px;
+$ico-size: 40px;
+
+.navBar {
+    margin: 0;
+    height: 60px;
+    width: 100%;
+    background-color: hsl(180, 100%, 50%);
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.logo {
+    margin: 0;
+    padding: $padding;
+    color: $ico-color;
+    font-size: $ico-size;
+
+    display: flex;
+    justify-items: center;
+    box-sizing: border-box;
+}
+
+.name {
+    margin: 0;
+    font-size: 20px;
+    font-family: 'Sassy Frass', cursive;
+    color: $ico-color;
+
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    text-align: justify;
+}
+
+.ico {
+    display: flex;
+}
+
+.ico > i{
+    margin: 0;
+    padding: $padding;
+    color: $ico-color;
+    font-size: $ico-size;
+
+    justify-items: center;
+    box-sizing: border-box;
+}
