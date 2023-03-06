@@ -10,7 +10,7 @@ const Navbar = () => {
       </div>
 
       <div className={classes.name}>
-        <h1>Estetica Girardi</h1>
+        <p>Estetica Girardi</p>
       </div>
 
       <div className={classes.ico}>

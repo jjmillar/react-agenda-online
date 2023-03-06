@@ -1,15 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&family=Sassy+Frass&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
 
+@function contentHeight($navHeight) {
+    @return $navHeight * 0.85; 
+}
+
+$navHeight: 60px;
 $ico-color: white;
 $padding: 12px;
-$ico-size: 40px;
+$ico-size: contentHeight($navHeight);
 
 .navBar {
     margin: 0;
     height: 60px;
     width: 100%;
-    background-color: hsl(180, 100%, 50%);
+    background-color: hsl(190, 100%, 60%);
+    
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     box-sizing: border-box;
 }
@@ -21,24 +28,28 @@ $ico-size: 40px;
     font-size: $ico-size;
 
     display: flex;
-    justify-items: center;
+    align-items: center;
     box-sizing: border-box;
 }
 
 .name {
     margin: 0;
-    font-size: 20px;
-    font-family: 'Sassy Frass', cursive;
+    height: 60px;
+    font-size: $ico-size;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
     color: $ico-color;
 
     display: flex;
-    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
-    text-align: justify;
+    text-align: center;
 }
 
 .ico {
     display: flex;
+    align-items: center;
+    box-sizing: border-box;
 }
 
 .ico > i{
@@ -47,6 +58,5 @@ $ico-size: 40px;
     color: $ico-color;
     font-size: $ico-size;
 
-    justify-items: center;
     box-sizing: border-box;
 }
