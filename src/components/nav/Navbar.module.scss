@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
 
 @function contentHeight($navHeight) {
-    @return $navHeight * 0.85; 
+    @return $navHeight * 0.7; 
 }
 
 $navHeight: 60px;
@@ -23,6 +23,7 @@ $ico-size: contentHeight($navHeight);
 
 .logo {
     margin: 0;
+    width: 400px;
     padding: $padding;
     color: $ico-color;
     font-size: $ico-size;
@@ -34,6 +35,7 @@ $ico-size: contentHeight($navHeight);
 
 .name {
     margin: 0;
+    width: 400px;
     height: 60px;
     font-size: $ico-size;
     font-family: 'Rubik', sans-serif;
@@ -47,12 +49,14 @@ $ico-size: contentHeight($navHeight);
 }
 
 .ico {
+    width: 400px;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     box-sizing: border-box;
 }
 
-.ico > i{
+.ico > a{
     margin: 0;
     padding: $padding;
     color: $ico-color;

@@ -1,5 +1,14 @@
-.slider {
-    width: 100%;
+.wrapper {
+    margin: 0;
+    padding: 0;
+}
+
+.slide {
+    height: 500px;
     box-sizing: border-box;
     text-align: center;
+}
+
+.slide > img {
+    height: 90%;
 }
