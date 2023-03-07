@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <nav className={classes.navBar}>
       <div className={classes.logo}>
-        <i className="fa-brands fa-drupal"></i>
+      <img src="https://tinypic.host/images/2023/03/07/logo9e41e4e8bc630240.png" alt="logo9e41e4e8bc630240.png" border="0" />
       </div>
 
       <div className={classes.name}>

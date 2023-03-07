@@ -25,12 +25,16 @@ $ico-size: contentHeight($navHeight);
     margin: 0;
     width: 400px;
     padding: $padding;
-    color: $ico-color;
-    font-size: $ico-size;
 
     display: flex;
     align-items: center;
     box-sizing: border-box;
+}
+
+.logo > img {
+    margin: 0;
+    height: 100%;
+    object-fit: cover;
 }
 
 .name {
