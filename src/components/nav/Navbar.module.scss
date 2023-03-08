@@ -4,7 +4,7 @@
     @return $navHeight * 0.7; 
 }
 
-$navHeight: 10vh;
+$navHeight: 10dvh;
 $ico-color: white;
 $padding: 12px;
 $ico-size: contentHeight($navHeight);
@@ -12,7 +12,7 @@ $ico-size: contentHeight($navHeight);
 .navBar {
     margin: 0;
     height: $navHeight;
-    width: 100%;
+    width: 100dvw;
     background-color: hsl(190, 100%, 60%);
     
     display: flex;
@@ -23,7 +23,7 @@ $ico-size: contentHeight($navHeight);
 
 .logo {
     height: 100%;
-    width: 400px;
+    width: 20%;
     padding: $padding;
 
     display: flex;
@@ -40,6 +40,7 @@ $ico-size: contentHeight($navHeight);
 .name {
     margin: 0;
     height: 100%;
+    width: 60%;
     font-size: $ico-size;
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
@@ -50,9 +51,14 @@ $ico-size: contentHeight($navHeight);
     box-sizing: border-box;
 }
 
+.name > p {
+    width: 100%;
+    text-align: center;
+}
+
 .ico {
     height: 100%;
-    width: 400px;
+    width: 20%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -70,7 +76,22 @@ $ico-size: contentHeight($navHeight);
 
 @media (width <= 800px) {
     .navBar {
-        height: calc(var(--vh, 1vh) * 10);
-        width: calc(var(--vw, 1vw) * 100);
+        justify-content: space-around;
     }
+
+    .name {
+        font-size: calc($ico-size * 0.6);
+    }
+    
+    .logo {
+        width: auto;
+    }
+
+    .ico {
+        display: none;
+    }
+}
+
+@media (width >= 800px) {
+
 }

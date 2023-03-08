@@ -6,11 +6,6 @@ import 'swiper/css/bundle';
 import './slider.scss'
 
 const Slider = () => {
-  let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-  let vw = window.innerWidth * 0.01;
-  document.documentElement.style.setProperty('--vw', `${vw}px`);
-  
   return (
     <swiper-container
       class="swiper-container"

@@ -3,11 +3,6 @@ import React from "react";
 import classes from "./Navbar.module.scss";
 
 const Navbar = () => {
-  let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-  let vw = window.innerWidth * 0.01;
-  document.documentElement.style.setProperty('--vw', `${vw}px`);
-  
   return (
     <nav className={classes.navBar}>
       <div className={classes.logo}>

@@ -1,5 +1,5 @@
 .swiper-container {
-  height: 90vh;
+  height: 90dvh;
 }
 
 .swiper-slide {
@@ -15,19 +15,9 @@
   width: auto;
 }
 
-
-
 @media (width <= 800px) {
-  .swiper-container {
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 90);
-    width: 100vw;
-    width: calc(var(--vw, 1vw) * 100);;
-  }
-
   .swiper-slide > img {
     height: auto;
     width: 100%;
-    object-fit: cover;
   }
 }
