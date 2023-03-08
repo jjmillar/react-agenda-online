@@ -3,8 +3,7 @@
 }
 
 .swiper-slide {
-  text-align: center;
-  background: #fff;
+  background: #ff0f;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -14,12 +13,18 @@
 .swiper-slide > img {
   height: 100%;
   width: auto;
-  object-fit: cover;
 }
 
 
 
-@media (max-width: 800px) {
+@media (width <= 800px) {
+  .swiper-container {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 90);
+    width: 100vw;
+    width: calc(var(--vw, 1vw) * 100);;
+  }
+
   .swiper-slide > img {
     height: auto;
     width: 100%;
