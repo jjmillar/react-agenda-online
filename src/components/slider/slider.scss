@@ -4,7 +4,6 @@
 
 .swiper-slide {
   text-align: center;
-  font-size: 18px;
   background: #fff;
   box-sizing: border-box;
   display: flex;
@@ -16,4 +15,14 @@
   height: 100%;
   width: auto;
   object-fit: cover;
+}
+
+
+
+@media (max-width: 800px) {
+  .swiper-slide > img {
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+  }
 }
