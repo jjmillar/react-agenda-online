@@ -14,7 +14,7 @@ const Slider = () => {
       navigation="true"
       space-between="30"
       centered-slides="true"
-      autoplay-delay="2500"
+      autoplay-delay="3500"
       autoplay-disable-on-interaction="false"
     >
       <swiper-slide class="swiper-slide">

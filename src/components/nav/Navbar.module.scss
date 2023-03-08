@@ -22,7 +22,7 @@ $ico-size: contentHeight($navHeight);
 }
 
 .logo {
-    margin: 0;
+    height: 100%;
     width: 400px;
     padding: $padding;
 
@@ -39,8 +39,7 @@ $ico-size: contentHeight($navHeight);
 
 .name {
     margin: 0;
-    width: 400px;
-    height: 60px;
+    height: 100%;
     font-size: $ico-size;
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
@@ -49,10 +48,10 @@ $ico-size: contentHeight($navHeight);
     display: flex;
     align-items: center;
     box-sizing: border-box;
-    text-align: center;
 }
 
 .ico {
+    height: 100%;
     width: 400px;
     display: flex;
     align-items: center;
