@@ -14,9 +14,9 @@ const Navbar = () => {
       </div>
 
       <div className={classes.ico}>
-        <a href="https://www.instagram.com/estetica_girardi/"><i className="fa-brands fa-instagram"></i></a>
-        <a href="/"><i className="fa-brands fa-whatsapp"></i></a>
-        <a href="/"><i className="fa-regular fa-envelope"></i></a>
+        <a href="https://www.instagram.com/estetica_girardi/" target="_blank"><i className="fa-brands fa-instagram"></i></a>
+        <a href="https://wa.me/56962105309" target="_blank"><i className="fa-brands fa-whatsapp"></i></a>
+        <a href="mailto:julianjmillar@gmail.com"><i className="fa-regular fa-envelope"></i></a>
       </div>
     </nav>
   );

@@ -4,14 +4,14 @@
     @return $navHeight * 0.7; 
 }
 
-$navHeight: 60px;
+$navHeight: 10vh;
 $ico-color: white;
 $padding: 12px;
 $ico-size: contentHeight($navHeight);
 
 .navBar {
     margin: 0;
-    height: 60px;
+    height: $navHeight;
     width: 100%;
     background-color: hsl(190, 100%, 60%);
     
