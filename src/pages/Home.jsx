@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../components/nav/Navbar";
-import Slider from "../components/slider/slider";
+import Slider from "../components/slider/Slider";
 
 const Home = () => {
   return (
