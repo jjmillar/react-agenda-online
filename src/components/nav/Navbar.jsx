@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <nav className={classes.navBar}>
       <div className={classes.logo}>
-      <img src="./src/assets/logo/logo.svg" alt="logo estetica girardi"/>
+      <img src="../../assets/logo/logo.svg" alt="logo estetica girardi"/>
       </div>
 
       <div className={classes.name}>
