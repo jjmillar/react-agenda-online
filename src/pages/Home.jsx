@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../components/nav/navbar";
+import Navbar from "../components/nav/navbar.jsx";
 import Slider from "../components/slider/Slider";
 import SlideDown from "../components/slide-down/slideDown";
 

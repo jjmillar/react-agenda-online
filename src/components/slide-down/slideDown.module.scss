@@ -1,4 +1,9 @@
 .slideArrow {
-    width: 100dvh;
-    height: 10svh;
+    display: none;
+}
+
+@media (width <= 800px) {
+    .slideArrow {
+        display: block;
+    }
 }

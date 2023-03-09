@@ -5,18 +5,20 @@ import classes from "./slideDown.module.scss"
 
 const SlideDown = () => {
     return (
-     
-          <UseAnimations 
+     <div className={classes.slideArrow}>
+        <UseAnimations 
       animation={arrowDown}
       size={50}
       wrapperStyle= {
         {
             height: '10svh',
             width: '100dvw',
-            opacity: '0.4'
+            opacity: '0.4',
         }
       }
       />
+     </div>
+          
     
     )
 };
