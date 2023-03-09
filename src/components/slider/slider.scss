@@ -1,11 +1,12 @@
 .swiper-container {
   height: 90dvh;
+  z-index: -1;
 }
 
 .swiper-slide {
   background: #fff;
   box-sizing: border-box;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
 }
@@ -16,6 +17,10 @@
 }
 
 @media (width <= 800px) {
+.swiper-container {
+  height: 80dvh
+}
+ 
   .swiper-slide > img {
     height: auto;
     width: 100%;

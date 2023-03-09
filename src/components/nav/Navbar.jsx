@@ -1,4 +1,5 @@
 import React from "react";
+import PopupMenu from "../hamburger-menu/pop-up menu/popup";
 
 import classes from "./Navbar.module.scss";
 
@@ -19,7 +20,7 @@ const Navbar = () => {
         <a href="mailto:julianjmillar@gmail.com"><i className="fa-regular fa-envelope"></i></a>
       </div>
       <div className={classes.menu}>
-      <ion-icon name="menu-outline"></ion-icon>
+      <PopupMenu/>
       </div>
     </nav>
   );

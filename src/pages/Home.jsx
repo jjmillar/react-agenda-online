@@ -1,12 +1,14 @@
 import React from "react";
-import Navbar from "../components/nav/Navbar";
+import Navbar from "../components/nav/navbar";
 import Slider from "../components/slider/Slider";
+import SlideDown from "../components/slide-down/slideDown";
 
 const Home = () => {
   return (
-    <div className="Home">
+    <div className="home">
       <Navbar />
       <Slider />
+      <SlideDown/>
     </div>
   )
 };

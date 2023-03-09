@@ -10,12 +10,15 @@ $padding: 12px;
 $ico-size: contentHeight($navHeight);
 
 .navBar {
+    position: sticky;
+    top: 0;
+
     margin: 0;
     height: $navHeight;
     width: 100dvw;
     background-color: hsl(190, 100%, 60%);
     
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
     justify-content: space-between;
     box-sizing: border-box;
