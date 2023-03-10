@@ -1,0 +1,30 @@
+.wrapper {
+    height: 90svh;
+    width: 100%;
+    box-sizing: border-box;
+
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: blueviolet;
+}
+
+.description {
+    padding: 2dvw;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.wrapper > p {
+    width: auto;
+    height: 45svh;
+}
+
+.wrapper > img {
+    height: 50svh;
+    width: auto;
+    margin-right: 2dvw;
+}

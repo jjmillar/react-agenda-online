@@ -1,0 +1,10 @@
+.articles {
+  height: 90svh;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
+article {
+  height: 90svh;
+  scroll-snap-align: center;
+}
