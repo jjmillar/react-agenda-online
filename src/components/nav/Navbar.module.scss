@@ -21,6 +21,7 @@ $ico-size: contentHeight($navHeight);
     display: inline-flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     box-sizing: border-box;
 }
 
@@ -76,28 +77,13 @@ $ico-size: contentHeight($navHeight);
     box-sizing: border-box;
 }
 
-.menu {
-    height: 100%;
-    width: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 10px;
-    color: $ico-color;
-    font-size: $ico-size;
-
-    box-sizing: border-box;
-}
-
 @media (width <= 800px) {
     .navBar {
         justify-content: space-around;
     }
 
     .name {
-        font-size: calc($ico-size * 0.7);
+        font-size: calc($ico-size * 0.6);
     }
     
     .logo > img{
@@ -110,7 +96,7 @@ $ico-size: contentHeight($navHeight);
 }
 
 @media (width >= 800px) {
-    .menu {
+    .dropDown {
         display: none;
     }
 }

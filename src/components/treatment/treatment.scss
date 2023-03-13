@@ -28,3 +28,16 @@
     width: auto;
     margin-right: 2dvw;
 }
+
+@media (width <= 800px ) {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .description {
+        height: 40svh;
+        display: flex;
+        justify-content: center;
+    }
+}

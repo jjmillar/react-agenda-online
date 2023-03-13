@@ -19,7 +19,7 @@ const Navbar = () => {
         <a href="https://wa.me/56962105309" target="_blank"><i className="fa-brands fa-whatsapp"></i></a>
         <a href="mailto:julianjmillar@gmail.com"><i className="fa-regular fa-envelope"></i></a>
       </div>
-      <div className={classes.menu}>
+      <div className={classes.dropDown}>
       <PopupMenu/>
       </div>
     </nav>
