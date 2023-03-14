@@ -15,7 +15,7 @@ $ico-size: contentHeight($navHeight);
 
     margin: 0;
     height: $navHeight;
-    width: 100dvw;
+    width: 100svw;
     background-color: hsl(190, 100%, 60%);
     
     display: inline-flex;
@@ -26,8 +26,8 @@ $ico-size: contentHeight($navHeight);
 }
 
 .logo {
-    height: 100%;
-    width: 20%;
+    height: 10svh;
+    width: 20svw;
     padding: 5px;
 
     display: flex;
@@ -42,8 +42,8 @@ $ico-size: contentHeight($navHeight);
 
 .name {
     margin: 0;
-    height: 100%;
-    width: 60%;
+    height: 10svh;
+    width: 60svw;
     font-size: $ico-size;
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
@@ -60,15 +60,19 @@ $ico-size: contentHeight($navHeight);
 }
 
 .ico {
-    height: 100%;
-    width: 20%;
+    height: 10svh;
+    width: 20svw;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     box-sizing: border-box;
 }
 
-.ico > a{
+.ico:hover {
+    cursor: pointer;
+}
+
+.ico > *{
     margin: 0;
     padding: $padding;
     color: $ico-color;

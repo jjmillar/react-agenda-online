@@ -1,0 +1,49 @@
+.popup-content {
+  height: auto;
+  width: 50svw;
+  background: hsl(190, 100%, 60%);
+  padding: 5px;
+}
+
+form {
+  font-size: 30px;
+  font-family: 'Rubik', sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+label {
+  height: 10svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  height: 4svh;
+}
+
+textarea {
+  height: 20svh;
+  width: 40svw;
+}
+
+input[type=submit] {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  margin: 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+@media (width <= 800px) {
+  .popup-content {
+    position: fixed;
+    top: 10svh;
+  }
+}

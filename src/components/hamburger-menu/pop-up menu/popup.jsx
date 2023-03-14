@@ -10,7 +10,7 @@ const PopupMenu = () => (
   <Popup 
   trigger={open => <Hamburger open={open}/>}
   position="bottom left"
-  closeOnDocumentClick
+  closeOnEscape
   tooltip
   >
     <Menu/>
