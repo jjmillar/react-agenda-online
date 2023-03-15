@@ -3,13 +3,14 @@ import PopupMenu from "../hamburger-menu/pop-up menu/popup";
 import ContactUs from "../email-form/emailForm";
 
 import classes from "./Navbar.module.scss";
+import logo from "../../assets/common/logo.svg"
 
 const Navbar = () => {
   return (
     <nav className={classes.navBar}>
       <div className={classes.logo}>
         <img
-          src="../../../public/assets/logo.svg"
+          src={logo}
           alt="logo estetica girardi"
         />
       </div>
