@@ -30,16 +30,18 @@ function ContactUs() {
 
   return (
     <Popup
-      trigger={<a><i className="fa-regular fa-envelope"></i>CONTÁCTANOS</a>}
+      trigger={<a><i className="fa-regular fa-envelope"></i><div className="contactanos">CONTÁCTANOS</div></a>}
       closeOnDocumentClick
       closeOnEscape
       modal
     >
       <form ref={form} onSubmit={sendEmail}>
-        <label>Tu nombre:</label>
+        <label>Tu nombre</label>
         <input type="text" name="user_name" />
         <label>Tu email</label>
         <input type="email" name="user_email" />
+        <label>Tu teléfono</label>
+        <input type="number" name="user_phone" />
         <label>Mensaje para la Estética</label>
         <textarea name="message" />
         <input type="submit" value="Enviar" />
