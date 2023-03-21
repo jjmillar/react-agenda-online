@@ -13,8 +13,8 @@ function ContactUs() {
 
     emailjs
       .sendForm(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        "service_fsfz0gf",
+        "template_8j2xdld",
         form.current,
         "YaKIVseNOJuk-R3gh"
       )
