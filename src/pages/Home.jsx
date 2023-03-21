@@ -2,7 +2,10 @@ import React from "react";
 import Navbar from "../components/nav/Navbar";
 import Slider from "../components/slider/Slider";
 import SlideDown from "../components/slide-down/slideDown";
-import TreatmentCard from "../components/treatment/treatment";
+import Crio from "../components/treatments/crio";
+import EmSculpt from "../components/treatments/emSculpt";
+import Hifu7d from "../components/treatments/hifu7d";
+import LaserDiodo from "../components/treatments/laserDiodo";
 import "./home.scss";
 
 const Home = () => {
@@ -15,7 +18,16 @@ const Home = () => {
           <SlideDown />
         </article>
         <article className="page">
-          <TreatmentCard />
+          <Hifu7d />
+        </article>
+        <article className="page">
+          <EmSculpt />
+        </article>
+        <article className="page">
+          <Crio />
+        </article>
+        <article className="page">
+          <LaserDiodo />
         </article>
       </div>
     </div>

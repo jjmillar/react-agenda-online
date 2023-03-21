@@ -1,9 +1,16 @@
 import React from "react";
 
-import { register } from 'swiper/element/bundle';
+import { register } from "swiper/element/bundle";
 register();
-import 'swiper/css/bundle';
-import './slider.scss'
+import "swiper/css/bundle";
+import "./slider.scss";
+
+import one from "../../assets/campaings/101.svg";
+import two from "../../assets/campaings/104.svg";
+import three from "../../assets/campaings/106.svg";
+import four from "../../assets/campaings/107.svg";
+import five from "../../assets/campaings/108.svg";
+import six from "../../assets/campaings/109.svg";
 
 const Slider = () => {
   return (
@@ -15,31 +22,27 @@ const Slider = () => {
       space-between="30"
       centered-slides="true"
       autoplay-delay="3500"
-      autoplay-disable-on-interaction="false"
+      css-mode="true"
     >
       <swiper-slide class="swiper-slide">
-        <img
-          src="https://tinypic.host/images/2023/03/06/128460446e8974454.jpg"
-          alt="128460446e8974454.jpg"
-          border="0"
-        />
+        <img src={one} alt="estetiga girardi promo" />
       </swiper-slide>
       <swiper-slide class="swiper-slide">
-        <img
-          src="https://tinypic.host/images/2023/03/06/2.jpg"
-          alt="2.jpg"
-          border="0"
-        />
+        <img src={two} alt="estetiga girardi promo" />{" "}
       </swiper-slide>
       <swiper-slide class="swiper-slide">
-        <img
-          src="https://tinypic.host/images/2023/03/06/Imagen-de-WhatsApp-2023-03-03-a-las-19.55.09.jpg"
-          alt="Imagen-de-WhatsApp-2023-03-03-a-las-19.55.09.jpg"
-          border="0"
-        />
+        <img src={three} alt="estetiga girardi promo" />{" "}
+      </swiper-slide>
+      <swiper-slide class="swiper-slide">
+        <img src={four} alt="estetiga girardi promo" />{" "}
+      </swiper-slide>
+      <swiper-slide class="swiper-slide">
+        <img src={five} alt="estetiga girardi promo" />{" "}
+      </swiper-slide>
+      <swiper-slide class="swiper-slide">
+        <img src={six} alt="estetiga girardi promo" />{" "}
       </swiper-slide>
     </swiper-container>
-    
   );
 };
 

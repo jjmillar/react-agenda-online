@@ -1,6 +1,5 @@
 .swiper-container {
   height: 90svh;
-  z-index: -1;
 }
 
 .swiper-slide {
@@ -17,10 +16,10 @@
 }
 
 @media (width <= 800px) {
-.swiper-container {
-  height: 80dvh
-}
- 
+  .swiper-container {
+    height: 80dvh;
+  }
+
   .swiper-slide > img {
     height: auto;
     width: 100%;
