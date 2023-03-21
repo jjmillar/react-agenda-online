@@ -1,5 +1,7 @@
+$width: 55svw;
+
 .menu {
-  width: 55svw;
+  width: auto;
   height: 100%;
   padding: 10px;
 
@@ -15,9 +17,20 @@
 
 }
 
-a {
+.menu > a {
+  width: auto;
+  color: white;
   text-decoration: none;
   padding: 10px;
+
+  display: flex;
+  justify-content: space-starts;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.menu > a > i {
+  margin-right: 10px;
 }
 
 a:visited {

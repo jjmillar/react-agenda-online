@@ -1,7 +1,7 @@
 .popup-content {
-  margin: auto;
+  margin: 0;
   background: hsl(190, 100%, 60%);
-  width: auto;
+  width: 55svw;
   padding: 5px;
   
   position: fixed;
@@ -16,5 +16,7 @@
 }
 
 .popup-overlay {
+  width: 100svw;
   background: rgba(0, 0, 0, 0.5);
 }
+

@@ -17,6 +17,7 @@ $ico-size: contentHeight($navHeight);
     height: $navHeight;
     width: 100svw;
     background-color: hsl(190, 100%, 60%);
+    box-shadow: 0px 5px 20px;
     
     display: inline-flex;
     flex-direction: row;
@@ -28,7 +29,8 @@ $ico-size: contentHeight($navHeight);
 .logo {
     height: 10svh;
     width: 20svw;
-    padding: 5px;
+    padding: 10px;
+    margin-left: 1svw;
 
     display: flex;
     align-items: center;
@@ -50,6 +52,7 @@ $ico-size: contentHeight($navHeight);
     color: $ico-color;
 
     display: flex;
+    justify-content: center;
     align-items: center;
     box-sizing: border-box;
 }
@@ -62,6 +65,8 @@ $ico-size: contentHeight($navHeight);
 .ico {
     height: 10svh;
     width: 20svw;
+    margin-right: 1svw;
+
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -77,7 +82,11 @@ $ico-size: contentHeight($navHeight);
     padding: $padding;
     color: $ico-color;
     font-size: $ico-size;
+    text-decoration: none;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
 }
 

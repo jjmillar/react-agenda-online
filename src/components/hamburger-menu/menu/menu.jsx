@@ -10,9 +10,7 @@ const Menu = ({ close }) => (
     <a href="https://wa.me/56962105309" target="_blank">
       <i className="fa-brands fa-whatsapp popico"></i> WHATSAPP
     </a>
-    <a className="contactUs">
-      <ContactUs /> CONTÁCTANOS
-    </a>
+    <ContactUs className="contactUs"/>
   </div>
 );
 

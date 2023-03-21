@@ -30,7 +30,7 @@ function ContactUs() {
 
   return (
     <Popup
-      trigger={<i className="fa-regular fa-envelope"></i>}
+      trigger={<a><i className="fa-regular fa-envelope"></i>CONTÁCTANOS</a>}
       closeOnDocumentClick
       closeOnEscape
       modal
