@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+
 .wrapper {
     height: 90svh;
     width: 100%;
@@ -12,6 +14,7 @@
 
 .description {
     padding: 2dvw;
+    text-align: justify;
     
     display: flex;
     flex-direction: column;
@@ -26,18 +29,45 @@
 .wrapper > img {
     height: 50svh;
     width: auto;
-    margin-right: 2dvw;
+    margin: 2dvw;
+    box-shadow: 5px 5px 10px;
+}
+
+.title {
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+}
+
+.description {
+    font-size: 20px;
+    font-family: 'Rubik', sans-serif;
 }
 
 @media (width <= 800px ) {
     .wrapper {
         display: flex;
         flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .title{
+        font-size: 7svw;
     }
 
     .description {
+        font-size: 3svw;
+
         height: 40svh;
         display: flex;
         justify-content: center;
+    }
+
+    .wrapper > img {
+        height: auto;
+        width: 60svw;
+        margin: 2dvw;
+        box-shadow: 5px 5px 10px;
     }
 }
