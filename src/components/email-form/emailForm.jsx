@@ -13,10 +13,10 @@ function ContactUs() {
 
     emailjs
       .sendForm(
-        "service_fsfz0gf",
-        "template_8j2xdld",
+        service_fsfz0gf,
+        template_8j2xdld,
         form.current,
-        "YaKIVseNOJuk-R3gh"
+        YaKIVseNOJuk-R3gh
       )
       .then(
         (result) => {
