@@ -28,19 +28,19 @@ const Slider = () => {
         <img src={one} alt="estetiga girardi promo" />
       </swiper-slide>
       <swiper-slide class="swiper-slide">
-        <img src={two} alt="estetiga girardi promo" />{" "}
+        <img src={two} alt="estetiga girardi promo" />
       </swiper-slide>
       <swiper-slide class="swiper-slide">
-        <img src={three} alt="estetiga girardi promo" />{" "}
+        <img src={three} alt="estetiga girardi promo" />
       </swiper-slide>
       <swiper-slide class="swiper-slide">
-        <img src={four} alt="estetiga girardi promo" />{" "}
+        <img src={four} alt="estetiga girardi promo" />
       </swiper-slide>
       <swiper-slide class="swiper-slide">
-        <img src={five} alt="estetiga girardi promo" />{" "}
+        <img src={five} alt="estetiga girardi promo" />
       </swiper-slide>
       <swiper-slide class="swiper-slide">
-        <img src={six} alt="estetiga girardi promo" />{" "}
+        <img src={six} alt="estetiga girardi promo" />
       </swiper-slide>
     </swiper-container>
   );
