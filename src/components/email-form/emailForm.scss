@@ -50,6 +50,10 @@ input[type=submit] {
   padding: 0 10px 0 10px;
 }
 
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
 @media (width <= 800px) {
   .popup-content {
     position: fixed;
