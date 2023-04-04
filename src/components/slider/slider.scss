@@ -14,7 +14,7 @@
   width: auto;
 }
 
-@media (width <= 800px) {
+@media screen and (max-width: 800px) {
   .swiper-container {
     height: 80dvh;
   }

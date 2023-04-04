@@ -91,7 +91,7 @@ $ico-size: contentHeight($navHeight);
     box-sizing: border-box;
 }
 
-@media (width <= 800px) {
+@media screen and (max-width: 800px) {
     .navBar {
         justify-content: space-around;
     }
@@ -109,7 +109,7 @@ $ico-size: contentHeight($navHeight);
     }
 }
 
-@media (width >= 800px) {
+@media screen and (min-width: 800px) {
     .dropDown {
         display: none;
     }

@@ -54,7 +54,7 @@ input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
-@media (width <= 800px) {
+@media screen and (max-width: 800px) {
   .popup-content {
     position: fixed;
     top: 5svh;
@@ -63,5 +63,11 @@ input[type=number]::-webkit-inner-spin-button {
   form {
     font-size: 20px;
     padding-bottom: 0px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .contactanos {
+    display: none;
   }
 }
