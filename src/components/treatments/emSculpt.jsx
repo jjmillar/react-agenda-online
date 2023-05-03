@@ -1,12 +1,13 @@
 import React from "react";
 import "./index.scss";
+import image from "../../assets/common/emSculpt.jpeg";
 
 const EmSculpt = () => {
   return (
     <div className="wrapper">
       <img
-        src="https://www.renewoklahoma.com/wp-content/uploads/2022/03/emsculpt-neo-okc.jpg"
-        alt="patricio estrella"
+        src={image}
+        alt="em sculpt estetica girardi"
       />
       <div className="description">
         <p className="title">EM Sculpt</p>
