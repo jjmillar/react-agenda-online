@@ -8,6 +8,10 @@ import "./slider.scss";
 import one from "../../assets/campaings/1.jpg";
 import two from "../../assets/campaings/2.jpg";
 import three from "../../assets/campaings/3.jpg";
+import four from "../../assets/campaings/4.jpg";
+import five from "../../assets/campaings/5.jpg";
+import six from "../../assets/campaings/6.jpg";
+import seven from "../../assets/campaings/7.jpg";
 
 const Slider = () => {
   return (
@@ -29,6 +33,18 @@ const Slider = () => {
       </swiper-slide>
       <swiper-slide class="swiper-slide">
         <img src={three} alt="estetiga girardi promo" />
+      </swiper-slide>
+      <swiper-slide class="swiper-slide">
+        <img src={four} alt="estetiga girardi promo" />
+      </swiper-slide>
+      <swiper-slide class="swiper-slide">
+        <img src={five} alt="estetiga girardi promo" />
+      </swiper-slide>
+      <swiper-slide class="swiper-slide">
+        <img src={six} alt="estetiga girardi promo" />
+      </swiper-slide>
+      <swiper-slide class="swiper-slide">
+        <img src={seven} alt="estetiga girardi promo" />
       </swiper-slide>
     </swiper-container>
   );
