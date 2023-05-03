@@ -5,12 +5,9 @@ register();
 import "swiper/css/bundle";
 import "./slider.scss";
 
-import one from "../../assets/campaings/101.svg";
-import two from "../../assets/campaings/104.svg";
-import three from "../../assets/campaings/106.svg";
-import four from "../../assets/campaings/107.svg";
-import five from "../../assets/campaings/108.svg";
-import six from "../../assets/campaings/109.svg";
+import one from "../../assets/campaings/1.jpg";
+import two from "../../assets/campaings/2.jpg";
+import three from "../../assets/campaings/3.jpg";
 
 const Slider = () => {
   return (
@@ -32,15 +29,6 @@ const Slider = () => {
       </swiper-slide>
       <swiper-slide class="swiper-slide">
         <img src={three} alt="estetiga girardi promo" />
-      </swiper-slide>
-      <swiper-slide class="swiper-slide">
-        <img src={four} alt="estetiga girardi promo" />
-      </swiper-slide>
-      <swiper-slide class="swiper-slide">
-        <img src={five} alt="estetiga girardi promo" />
-      </swiper-slide>
-      <swiper-slide class="swiper-slide">
-        <img src={six} alt="estetiga girardi promo" />
       </swiper-slide>
     </swiper-container>
   );
