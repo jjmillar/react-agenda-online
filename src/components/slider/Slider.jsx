@@ -12,6 +12,7 @@ import four from "../../assets/campaings/4.jpg";
 import five from "../../assets/campaings/5.jpg";
 import six from "../../assets/campaings/6.jpg";
 import seven from "../../assets/campaings/7.jpg";
+import eight from "../../assets/campaings/8.jpg";
 
 const Slider = () => {
   return (
@@ -45,6 +46,9 @@ const Slider = () => {
       </swiper-slide>
       <swiper-slide class="swiper-slide">
         <img src={seven} alt="estetiga girardi promo" />
+      </swiper-slide>
+      <swiper-slide class="swiper-slide">
+        <img src={eight} alt="estetiga girardi promo" />
       </swiper-slide>
     </swiper-container>
   );
