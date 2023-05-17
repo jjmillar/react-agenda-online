@@ -5,9 +5,14 @@ register();
 import "swiper/css/bundle";
 import "./slider.scss";
 
+//import one from "../../assets/campaings/1.jpg";
+//import two from "../../assets/campaings/2.jpg";
+//import three from "../../assets/campaings/3.jpg";
+//import four from "../../assets/campaings/4.jpg";
 import five from "../../assets/campaings/5.jpg";
 import six from "../../assets/campaings/6.jpg";
 import seven from "../../assets/campaings/7.jpg";
+//import eight from "../../assets/campaings/8.jpg";
 
 const Slider = () => {
   return (
