@@ -26,19 +26,7 @@ const Slider = () => {
       autoplay-delay="3500"
       css-mode="true"
     >
-      <swiper-slide class="swiper-slide">
-        <img src={one} alt="estetiga girardi promo" />
-      </swiper-slide>
-      <swiper-slide class="swiper-slide">
-        <img src={two} alt="estetiga girardi promo" />
-      </swiper-slide>
-      <swiper-slide class="swiper-slide">
-        <img src={three} alt="estetiga girardi promo" />
-      </swiper-slide>
-      <swiper-slide class="swiper-slide">
-        <img src={four} alt="estetiga girardi promo" />
-      </swiper-slide>
-      <swiper-slide class="swiper-slide">
+            <swiper-slide class="swiper-slide">
         <img src={five} alt="estetiga girardi promo" />
       </swiper-slide>
       <swiper-slide class="swiper-slide">
@@ -46,9 +34,6 @@ const Slider = () => {
       </swiper-slide>
       <swiper-slide class="swiper-slide">
         <img src={seven} alt="estetiga girardi promo" />
-      </swiper-slide>
-      <swiper-slide class="swiper-slide">
-        <img src={eight} alt="estetiga girardi promo" />
       </swiper-slide>
     </swiper-container>
   );
