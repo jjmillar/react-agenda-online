@@ -1,10 +1,20 @@
+.home {
+  height: 100dvh;
+  width: 100dvw;
+  
+  display: block;
+}
+
 .articles {
-  height: 90svh;
+  display: block;
+  height: 90dvh;
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
 }
 
-article {
-  height: 90svh;
+.article {
+  margin-top: 3%;
+ margin-bottom: -4%;
+  height: 80%;
   scroll-snap-align: center;
 }

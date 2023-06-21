@@ -13,20 +13,20 @@ const Home = () => {
     <div className="home">
       <Navbar />
       <div className="articles">
-        <article className="page">
+        <article className="article">
           <Slider />
           <SlideDown />
         </article>
-        <article className="page">
+        <article className="article">
           <Hifu7d />
         </article>
-        <article className="page">
+        <article className="article">
           <EmSculpt />
         </article>
-        <article className="page">
+        <article className="article">
           <Crio />
         </article>
-        <article className="page">
+        <article className="article">
           <LaserDiodo />
         </article>
       </div>
