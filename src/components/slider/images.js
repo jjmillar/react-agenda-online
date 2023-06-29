@@ -15,6 +15,10 @@ const IMAGES = [
         id: '4',
         image: 'images/4.jpg'
     },
+    {
+        id: '5',
+        image: 'images/5.jpg'
+    },
 ];
 
 export default IMAGES;
