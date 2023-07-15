@@ -46,6 +46,7 @@
 
 @media screen and (max-width: 800px ) {
     .wrapper {
+        height: 80dvh;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
@@ -58,14 +59,14 @@
     .description {
         font-size: 3svw;
 
-        height: 40svh;
+        height: auto;
         display: flex;
         justify-content: center;
     }
 
     .wrapper > img {
         height: auto;
-        width: 60svw;
+        width: 70svw;
         margin: 2dvw;
         box-shadow: 5px 5px 10px;
     }
