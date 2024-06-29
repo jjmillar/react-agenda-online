@@ -2,18 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 
 .wrapper {
-    height: auto;
-    width: auto;
-    box-sizing: border-box;
-
-    display: inline-flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .description {
     padding: 2dvw;
-    text-align: justify;
     
     display: flex;
     flex-direction: column;
@@ -21,14 +16,13 @@
 }
 
 .wrapper > p {
-    width: auto;
     height: 45svh;
 }
 
 .wrapper > img {
     height: 50svh;
-    width: auto;
     margin: 2dvw;
+    border-radius: 3rem;
     box-shadow: 5px 5px 10px;
 }
 

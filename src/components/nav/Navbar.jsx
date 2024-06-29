@@ -1,4 +1,3 @@
-import React from "react";
 import PopupMenu from "../hamburger-menu/pop-up menu/popup";
 import ContactUs from "../email-form/emailForm";
 
@@ -8,18 +7,18 @@ import logo from "../../assets/common/logo.svg"
 const Navbar = () => {
   return (
     <nav className={classes.navBar}>
-      <div className={classes.logo}>
-        <img
-          src={logo}
-          alt="logo estetica girardi"
-        />
-      </div>
-
-      <div className={classes.name}>
-        <p>Estética Girardi</p>
-      </div>
-
+      <img
+        className={classes.logo}
+        src={logo}
+        alt="logo estetica girardi"
+      />
+      <p className={classes.name}>
+        Estética Girardi
+      </p>
       <div className={classes.ico}>
+        <a href="https://calendar.app.google/rH2CzU8HjWu8MjZS7" target="_blank">
+          <i class="fa-regular fa-calendar-plus"></i>
+        </a>
         <a href="https://www.instagram.com/estetica_girardi/" target="_blank">
           <i className="fa-brands fa-instagram"></i>
         </a>

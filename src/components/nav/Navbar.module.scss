@@ -1,53 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
 
-@function contentHeight($navHeight) {
-    @return $navHeight * 0.7; 
-}
-
 $navHeight: 10svh;
 $ico-color: white;
-$padding: 12px;
-$ico-size: contentHeight($navHeight);
 
 .navBar {
     position: sticky;
     z-index: 2;
     top: 0;
-
-    margin: 0;
+    
     height: $navHeight;
     width: 100svw;
     background-color: hsl(190, 100%, 60%);
     box-shadow: 0px 5px 20px;
     
-    display: inline-flex;
-    flex-direction: row;
+    display: flex;
     justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
 }
 
 .logo {
-    height: 10svh;
-    width: 20svw;
-    padding: 10px;
-    margin-left: 1svw;
-
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
-}
-
-.logo > img {
     height: 100%;
-    object-fit: cover;
+    width: 20%;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .name {
     margin: 0;
-    height: 10svh;
-    width: 60svw;
-    font-size: $ico-size;
+    height: 100%;
+    font-size: calc($navHeight * 0.7);
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
     color: $ico-color;
@@ -55,41 +35,31 @@ $ico-size: contentHeight($navHeight);
     display: flex;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
-}
-
-.name > p {
-    width: 100%;
-    text-align: center;
 }
 
 .ico {
-    height: 10svh;
-    width: 20svw;
-    margin-right: 1svw;
+    height: 100%;
+    width: 20%;
 
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    box-sizing: border-box;
+    justify-content: space-evenly;
+
+    & a {
+        color: $ico-color;
+        font-size: calc($navHeight * 0.65);
+        text-decoration: none;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .ico:hover {
     cursor: pointer;
 }
 
-.ico > *{
-    margin: 0;
-    padding: $padding;
-    color: $ico-color;
-    font-size: $ico-size;
-    text-decoration: none;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-}
 
 @media screen and (max-width: 800px) {
     .navBar {
@@ -97,7 +67,7 @@ $ico-size: contentHeight($navHeight);
     }
 
     .name {
-        font-size: calc($ico-size * 0.6);
+        font-size: calc($navHeight * 0.4);
     }
     
     .logo > img{

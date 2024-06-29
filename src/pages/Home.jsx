@@ -1,10 +1,9 @@
-import React from "react";
 import Navbar from "../components/nav/Navbar";
 import Slider from "../components/slider/Slider";
 import SlideDown from "../components/slide-down/slideDown";
 import Crio from "../components/treatments/crio";
 import EmSculpt from "../components/treatments/emSculpt";
-import Hifu7d from "../components/treatments/hifu7d";
+import Hifu15D from "../components/treatments/hifu15d";
 import LaserDiodo from "../components/treatments/laserDiodo";
 import "./home.scss";
 
@@ -18,7 +17,7 @@ const Home = () => {
           <SlideDown />
         </article>
         <article className="article">
-          <Hifu7d />
+          <Hifu15D />
         </article>
         <article className="article">
           <EmSculpt />
