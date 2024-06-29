@@ -11,6 +11,9 @@ const Menu = ({ close }) => (
       <i className="fa-brands fa-whatsapp popico"></i> WHATSAPP
     </a>
     <ContactUs className="contactUs"/>
+    <a href="https://calendar.app.google/rH2CzU8HjWu8MjZS7" target="_blank" className="menu__agenda">
+      <i class="fa-regular fa-calendar-plus"></i> AGENDA
+    </a>
   </div>
 );
 
