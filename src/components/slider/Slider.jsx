@@ -1,30 +1,32 @@
-import React from "react";
-import IMAGES from "./images";
+import React, { useRef, useState} from "react"
 
-import { register } from "swiper/element/bundle";
-register();
-import "swiper/css/bundle";
-import "./slider.scss";
+import { Swiper, SwiperSlide } from "swiper/react"
+import { Navigation, Autoplay, Pagination } from 'swiper/modules'
+
+import IMAGES from "./images"
+import "swiper/css"
+import 'swiper/css/navigation'
+import './slider.scss'
 
 const Slider = () => {
   return (
-    <swiper-container
-      class="swiper-container"
-      pagination="true"
-      pagination-clickable="true"
-      navigation="true"
-      space-between="30"
-      centered-slides="true"
-      autoplay-delay="3500"
-      css-mode="true"
+    <Swiper
+      navigation={true}
+      autoplay={{
+        delay: 2500,
+        disableOnInteraction: true
+      }}
+      loop={true}
+      modules={[Navigation, Autoplay]}
+      className='mySwiper swiper-container'
     >
       {IMAGES.map((i) => (
-        <swiper-slide class="swiper-slide" key={i.id}>
+        <SwiperSlide className='swiper-slide' key={i.id}>
           <img src={i.image} alt="estetica girardi promo" />
-        </swiper-slide>
+        </SwiperSlide>
       ))}
-    </swiper-container>
-  );
-};
+    </Swiper>
+  )
+}
 
-export default Slider;
+export default Slider

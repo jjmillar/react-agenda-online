@@ -11,7 +11,7 @@ $ico-color: white;
     height: $navHeight;
     width: 100svw;
     background-color: hsl(190, 100%, 60%);
-    box-shadow: 0px 5px 20px;
+    box-shadow: var(--box-shadow);
     
     display: flex;
     justify-content: space-between;
