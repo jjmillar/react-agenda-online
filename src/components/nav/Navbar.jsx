@@ -19,7 +19,7 @@ const Navbar = () => {
         <a href="https://calendar.app.google/rH2CzU8HjWu8MjZS7" target="_blank">
           <i class="fa-regular fa-calendar-plus"></i>
         </a>
-        <a href="https://www.instagram.com/estetica_girardi/" target="_blank">
+        <a href="https://www.instagram.com/girardiestetica/" target="_blank">
           <i className="fa-brands fa-instagram"></i>
         </a>
         <a href="https://wa.me/56962105309" target="_blank">
