@@ -16,9 +16,11 @@ const Navbar = () => {
         Estética Girardi
       </p>
       <div className={classes.ico}>
-        <a href="https://calendar.app.google/rH2CzU8HjWu8MjZS7" target="_blank">
+        {/*
+          <a href="https://calendar.app.google/rH2CzU8HjWu8MjZS7" target="_blank" className="agenda">
           <i class="fa-regular fa-calendar-plus"></i>
         </a>
+        */}
         <a href="https://www.instagram.com/girardiestetica/" target="_blank">
           <i className="fa-brands fa-instagram"></i>
         </a>
