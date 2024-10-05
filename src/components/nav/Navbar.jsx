@@ -21,7 +21,7 @@ const Navbar = () => {
           <i class="fa-regular fa-calendar-plus"></i>
         </a>
         */}
-        <a href="https://www.instagram.com/girardiestetica/" target="_blank">
+        <a href="https://www.instagram.com/girardiclinica/" target="_blank">
           <i className="fa-brands fa-instagram"></i>
         </a>
         <a href="https://wa.me/56962105309" target="_blank">
