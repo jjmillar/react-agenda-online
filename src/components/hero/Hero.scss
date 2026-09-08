@@ -4,20 +4,20 @@
   isolation: isolate;
 }
 
-/* Fondo decorativo: degradado suave con deriva lenta (único acento del hero) */
+/* Fondo decorativo: degradado suave (azules del logo) con deriva lenta */
 .hero__bg {
   position: absolute;
   inset: -20% -10% auto -10%;
   height: 140%;
   z-index: -1;
   background: radial-gradient(
-      55% 55% at 78% 18%,
-      rgba(169, 199, 192, 0.55),
+      50% 50% at 80% 12%,
+      rgba(65, 171, 226, 0.28),
       transparent 70%
     ),
     radial-gradient(
-      45% 45% at 12% 85%,
-      rgba(140, 123, 147, 0.22),
+      45% 45% at 10% 90%,
+      rgba(107, 140, 196, 0.2),
       transparent 70%
     ),
     linear-gradient(180deg, var(--surface-alt), var(--bg));
@@ -37,8 +37,10 @@
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   align-items: center;
-  gap: clamp(var(--space-6), 5vw, var(--space-9));
-  padding-block: clamp(var(--space-8), 8vw, var(--space-10));
+  gap: clamp(var(--space-6), 5vw, var(--space-8));
+  /* Menos aire arriba (el header ya separa), más abajo */
+  padding-block: clamp(var(--space-5), 4vw, var(--space-7))
+    clamp(var(--space-8), 7vw, var(--space-9));
 }
 
 .hero__eyebrow {
@@ -47,15 +49,15 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--primary);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
 }
 
 .hero__title {
-  max-width: 12ch;
+  max-width: 20ch;
 }
 
 .hero__lead {
-  margin-top: var(--space-5);
+  margin-top: var(--space-4);
   max-width: 46ch;
   font-size: 1.125rem;
   color: var(--text-muted);
@@ -72,7 +74,7 @@
 
 .hero__trust {
   list-style: none;
-  margin: var(--space-7) 0 0;
+  margin: var(--space-6) 0 0;
   padding: 0;
   display: grid;
   gap: var(--space-3);
@@ -96,28 +98,59 @@
 .hero__media img {
   width: 100%;
   height: auto;
-  aspect-ratio: 1 / 1;
+  /* Igual a la proporción real de la foto (1200×800) → sin recorte */
+  aspect-ratio: 3 / 2;
   object-fit: cover;
+  object-position: center;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
 }
 
+/* ---------- Tablet ---------- */
 @media (max-width: 900px) {
   .hero__inner {
     grid-template-columns: 1fr;
-    text-align: left;
+    justify-items: center;
+    text-align: center;
+    gap: var(--space-6);
+    padding-block: var(--space-5) var(--space-8);
   }
   .hero__media {
     order: -1;
-    max-width: 420px;
+    width: 100%;
+    max-width: 460px;
   }
-  .hero__title {
-    max-width: 18ch;
+  .hero__title,
+  .hero__lead {
+    max-width: 28ch;
+  }
+  .hero__cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .hero__trust {
+    justify-items: center;
+    text-align: left;
+    width: fit-content;
+    margin-inline: auto;
   }
 }
 
+/* ---------- Móvil ---------- */
 @media (max-width: 520px) {
   .hero__media {
     max-width: 100%;
+  }
+  .hero__title {
+    max-width: none;
+  }
+  .hero__lead {
+    max-width: 42ch;
+    font-size: 1.05rem;
+  }
+  .hero__cta .booking-btn {
+    width: 100%;
   }
 }

@@ -49,6 +49,9 @@
   color: var(--text-muted);
   font-size: 0.95rem;
 }
+.city-card__address--tba {
+  font-style: italic;
+}
 
 .city-card__links {
   display: flex;
@@ -72,4 +75,17 @@
   font-weight: 500 !important;
   font-size: 0.85rem !important;
   color: var(--text-muted) !important;
+}
+
+@media (max-width: 560px) {
+  .city-card {
+    padding: var(--space-5);
+    text-align: center;
+  }
+  .city-card__name {
+    justify-content: center;
+  }
+  .city-card__links {
+    align-items: center;
+  }
 }

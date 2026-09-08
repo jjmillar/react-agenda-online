@@ -23,7 +23,17 @@
 }
 
 @media (max-width: 760px) {
+  .cta-band__inner {
+    text-align: center;
+  }
+  .cta-band__inner > div:first-child {
+    max-width: none;
+  }
   .cta-band__actions {
+    width: 100%;
+    align-items: stretch;
+  }
+  .cta-band__actions .booking-btn {
     width: 100%;
   }
 }

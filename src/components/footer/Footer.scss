@@ -75,9 +75,29 @@
   color: var(--text);
 }
 
+.site-footer__credit {
+  margin-top: var(--space-3);
+}
+.site-footer__credit strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
 @media (max-width: 640px) {
+  .site-footer__inner {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
   .site-footer__nav {
-    margin-inline: 0;
+    margin-inline: auto;
     width: 100%;
+    justify-content: center;
+  }
+  .site-footer__legal {
+    text-align: center;
+  }
+  .site-footer__meta {
+    justify-content: center;
   }
 }

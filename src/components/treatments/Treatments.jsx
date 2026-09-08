@@ -5,8 +5,7 @@ import "./Treatments.scss";
 
 /**
  * Grilla de tratamientos. Los datos viven en src/config/treatments.js.
- * Sólo la toxina botulínica muestra precios (tarifas reales de la agenda);
- * el resto se cotiza en la valoración.
+ * La web no muestra precios: el valor se entrega en la valoración.
  */
 const Treatments = () => (
   <section className="section treatments" id="tratamientos">
@@ -31,27 +30,6 @@ const Treatments = () => (
               <p className="treatment-card__tag">{t.tagline}</p>
               <h3 className="treatment-card__name">{t.name}</h3>
               <p className="treatment-card__desc">{t.description}</p>
-
-              {t.prices && (
-                <div className="treatment-card__prices">
-                  <table>
-                    <caption className="visually-hidden">
-                      Tarifas de {t.name}
-                    </caption>
-                    <tbody>
-                      {t.prices.map((p) => (
-                        <tr key={p.label}>
-                          <th scope="row">{p.label}</th>
-                          <td>{p.value}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                  {t.priceNote && (
-                    <p className="treatment-card__price-note">{t.priceNote}</p>
-                  )}
-                </div>
-              )}
             </div>
 
             <a
@@ -68,8 +46,8 @@ const Treatments = () => (
       </ul>
 
       <p className="treatments__foot reveal">
-        Los precios de los demás tratamientos se entregan en la valoración, según
-        la zona y el producto.
+        Cada plan se define en la valoración según la zona, el producto y el
+        número de sesiones.
       </p>
     </div>
   </section>

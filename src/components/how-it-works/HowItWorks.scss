@@ -65,3 +65,13 @@
     background-color: var(--border);
   }
 }
+
+@media (max-width: 639px) {
+  .how__step {
+    text-align: center;
+    padding: var(--space-5);
+  }
+  .how__num {
+    margin-inline: auto;
+  }
+}
