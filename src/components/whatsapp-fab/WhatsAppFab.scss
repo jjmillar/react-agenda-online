@@ -1,0 +1,57 @@
+.wa-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 40;
+  display: none;
+  align-items: center;
+  gap: 0;
+  height: 56px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: var(--radius-pill);
+  background-color: var(--whatsapp);
+  color: #fff;
+  text-decoration: none;
+  box-shadow: var(--shadow-md);
+
+  opacity: 0;
+  transform: scale(0.85);
+  pointer-events: none;
+  transition: opacity var(--transition), transform var(--transition),
+    padding var(--transition), background-color var(--transition);
+}
+
+.wa-fab.is-visible {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.wa-fab > svg {
+  flex-shrink: 0;
+  width: 56px;
+}
+
+.wa-fab__text {
+  max-width: 0;
+  white-space: nowrap;
+  font-weight: 600;
+  font-size: 0.95rem;
+  opacity: 0;
+  transition: max-width var(--transition), opacity var(--transition),
+    padding var(--transition);
+}
+
+.wa-fab:hover .wa-fab__text,
+.wa-fab:focus-visible .wa-fab__text {
+  max-width: 220px;
+  opacity: 1;
+  padding-right: 22px;
+}
+
+@media (min-width: 768px) {
+  .wa-fab {
+    display: inline-flex;
+  }
+}

@@ -1,0 +1,29 @@
+.cta-band__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.cta-band__inner > div:first-child {
+  max-width: 44ch;
+}
+
+.cta-band__reassure {
+  margin-top: var(--space-3);
+  color: var(--text-muted);
+}
+
+.cta-band__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+@media (max-width: 760px) {
+  .cta-band__actions {
+    width: 100%;
+  }
+}

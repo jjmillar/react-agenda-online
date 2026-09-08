@@ -1,0 +1,79 @@
+/**
+ * Tokens de diseño — Estética Girardi
+ * Paleta "Cool Clinical Spa" (opción B del brief de UX).
+ * Todos los valores se exponen como custom properties para poder ajustarlos
+ * en un solo lugar. No usar hex sueltos en los componentes: siempre var(--...).
+ */
+
+:root {
+  /* ---------- Color ---------- */
+  --bg: #f6f8f8;
+  --surface: #ffffff;
+  --surface-alt: #eaf0ef;
+  --text: #1f2a2a;
+  --text-muted: #5b6b6b;
+  --primary: #3e7c74;
+  --primary-hover: #2f625b;
+  --accent: #a9c7c0; /* decorativo: líneas e iconos, nunca texto */
+  --secondary: #8c7b93; /* decorativo: etiquetas y pequeños acentos */
+  --border: #dce6e4;
+  --success: #3e7c74;
+  --focus-ring: #2f625b;
+  --whatsapp: #25d366;
+
+  /* Sombra tintada con el RGB de --text (sin negro puro) */
+  --shadow-rgb: 31, 42, 42;
+  --shadow-xs: 0 1px 2px rgba(var(--shadow-rgb), 0.04);
+  --shadow-sm: 0 4px 16px rgba(var(--shadow-rgb), 0.06);
+  --shadow-md: 0 12px 32px rgba(var(--shadow-rgb), 0.1);
+  --shadow-lg: 0 24px 60px rgba(var(--shadow-rgb), 0.14);
+  --shadow-bar: 0 -6px 20px rgba(var(--shadow-rgb), 0.1);
+
+  /* ---------- Tipografía ---------- */
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+
+  /* Escala fluida con clamp(): mínimo (360px) → máximo (~1200px) */
+  --fs-display: clamp(2.25rem, 1.5rem + 3.4vw, 3.5rem); /* H1 */
+  --fs-h2: clamp(1.75rem, 1.35rem + 1.8vw, 2.5rem);
+  --fs-h3: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --fs-body: clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
+  --fs-small: 0.875rem;
+
+  --lh-display: 1.1;
+  --lh-heading: 1.15;
+  --lh-body: 1.6;
+  --tracking-display: -0.01em;
+  --tracking-button: 0.01em;
+
+  /* ---------- Espaciado (base 8px) ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* Ritmo vertical de sección */
+  --section-pad: clamp(var(--space-8), 6vw, var(--space-10));
+  --container: 1200px;
+  --measure: 68ch;
+
+  /* ---------- Radios ---------- */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* ---------- Otros ---------- */
+  --header-h: 64px;
+  --mobile-bar-h: 64px;
+  --transition-fast: 150ms ease;
+  --transition: 200ms ease;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}

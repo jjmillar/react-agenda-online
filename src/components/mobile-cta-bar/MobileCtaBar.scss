@@ -1,0 +1,68 @@
+.mobile-cta {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  display: none;
+  align-items: center;
+  gap: var(--space-3);
+  height: calc(var(--mobile-bar-h) + env(safe-area-inset-bottom));
+  padding: var(--space-2) var(--space-4)
+    calc(var(--space-2) + env(safe-area-inset-bottom));
+  background-color: var(--surface);
+  border-top: 1px solid var(--border);
+  box-shadow: var(--shadow-bar);
+
+  /* Oculta hasta pasar el hero. Sólo transform → sin CLS. */
+  transform: translateY(110%);
+  transition: transform 200ms var(--ease-out);
+}
+
+.mobile-cta.is-visible {
+  transform: translateY(0);
+}
+
+.mobile-cta__book {
+  flex: 1 1 70%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 48px;
+  border-radius: var(--radius-pill);
+  background-color: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: var(--tracking-button);
+  text-decoration: none;
+}
+.mobile-cta__book svg {
+  opacity: 0.85;
+}
+
+.mobile-cta__wa {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  min-height: 48px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  color: var(--whatsapp);
+  text-decoration: none;
+}
+.mobile-cta__wa:hover {
+  border-color: var(--whatsapp);
+}
+
+@media (max-width: 767px) {
+  .mobile-cta {
+    display: flex;
+  }
+  /* Reserva de espacio para que la barra nunca tape el footer */
+  body {
+    padding-bottom: calc(var(--mobile-bar-h) + env(safe-area-inset-bottom));
+  }
+}

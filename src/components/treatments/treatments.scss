@@ -1,66 +1,116 @@
-.treatment {
-    --border-radius: 3rem;
-
-    width: 80%;
-    margin: 2rem 0;
-    padding: 2rem 0;
-    background-color: #F9F9F9;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-evenly;
-
-    & .treatment__title {
-        margin: 0;
-        width: 50%;
-        text-align: center;
-        font-size: 3rem;
-        font-weight: 600;
-    }
-
-    & .treatment__description {
-        margin: 0;
-        width: 50%;
-        padding: 0 2rem;
-        font-size: 1.5rem;
-        text-indent: 2rem;
-    }
-
-    & img {
-        height: 100%;
-        width: 50%;
-        border-radius: var(--border-radius);
-        box-shadow: var(--box-shadow);
-    }
-
+.treatments__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
 }
 
-@media (width < 800px) {
-    .treatment {
-        height: auto;
-        width: 90%;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
+@media (min-width: 600px) {
+  .treatments__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 980px) {
+  .treatments__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
-        & .treatment__title{
-            font-size: 2rem;
-            width: 100%;
-        } 
-        
-        & .treatment__description{
-            font-size: 1.25rem;
-            width: 100%;
-            padding: 1rem 1rem;
-            box-sizing: border-box;
-            text-align: center;
-            text-indent: 0;
-        }
+.treatment-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-6);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition),
+    border-color var(--transition);
+}
+.treatment-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent);
+}
 
-        & img {
-            display: none;
-        }
-    }
+.treatment-card__body {
+  flex: 1;
+}
+
+.treatment-card__tag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: var(--space-2);
+}
+
+.treatment-card__name {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-3);
+}
+
+.treatment-card__desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.treatment-card__prices {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+.treatment-card__prices table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.treatment-card__prices th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 4px 0;
+}
+.treatment-card__prices td {
+  text-align: right;
+  font-weight: 600;
+  color: var(--text);
+  padding: 4px 0;
+}
+.treatment-card__price-note {
+  margin-top: var(--space-3);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.treatment-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  align-self: flex-start;
+  min-height: 48px;
+  padding: 12px 22px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color var(--transition), border-color var(--transition);
+}
+.treatment-card__cta:hover {
+  background-color: var(--surface-alt);
+  border-color: var(--primary);
+}
+.treatment-card__cta svg {
+  opacity: 0.8;
+}
+
+.treatments__foot {
+  margin-top: var(--space-6);
+  font-size: var(--fs-small);
+  color: var(--text-muted);
 }

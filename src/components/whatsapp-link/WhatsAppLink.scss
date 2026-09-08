@@ -1,0 +1,42 @@
+.wa-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 48px;
+  padding: 12px 20px;
+  border-radius: var(--radius-pill);
+  font-weight: 500;
+  font-size: var(--fs-small);
+  text-decoration: none;
+  color: var(--text-muted);
+  transition: color var(--transition), background-color var(--transition),
+    border-color var(--transition);
+}
+
+.wa-link svg {
+  flex-shrink: 0;
+  color: var(--whatsapp);
+}
+
+.wa-link--text:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+.wa-link--outline {
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.wa-link--outline:hover {
+  border-color: var(--whatsapp);
+  background-color: var(--surface);
+}
+
+.wa-link--solid {
+  background-color: var(--whatsapp);
+  color: #fff;
+}
+.wa-link--solid svg {
+  color: #fff;
+}
