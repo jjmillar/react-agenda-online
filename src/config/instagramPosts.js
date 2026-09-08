@@ -1,32 +1,26 @@
 /**
- * Carrusel de Instagram — modo CURADO (manual). Estética Girardi.
+ * Carrusel de Instagram — LISTA DE RESERVA (fallback). Estética Girardi.
  * ---------------------------------------------------------------------------
- * CÓMO ACTUALIZAR ESTE CARRUSEL CON LAS 5 PUBLICACIONES REALES MÁS RECIENTES:
+ * Por defecto el carrusel muestra las últimas publicaciones REALES obtenidas
+ * en vivo por la función serverless `/.netlify/functions/instagram` al cargar
+ * la página. Este archivo sólo se usa si esa función falla (Instagram bloquea
+ * la IP del servidor, rate-limit, o se ejecuta sin Netlify en local).
  *
- * 1. Abre https://www.instagram.com/girardiclinica/ con la sesión iniciada.
- * 2. Por cada una de las 5 publicaciones más recientes que quieras mostrar:
- *    a. Copia el enlace del post (menú "..." → "Copiar enlace"). Tiene el
- *       formato https://www.instagram.com/p/XXXXXXXXX/  o  /reel/XXXXXXXXX/
- *       Pégalo en el campo `permalink`.
- *    b. Descarga o toma una captura de la imagen de portada del post y
- *       guárdala en  public/images/instagram/  con un nombre simple
- *       (por ejemplo  post-1.jpg ). Recomendado: cuadrada (1080×1080) y
- *       optimizada (< 200 KB). Pon la ruta en `image` como
- *       "/images/instagram/post-1.jpg".
- *    c. Escribe un `alt` corto y descriptivo en español (lo lee el lector de
- *       pantalla) y, si quieres, un `caption` breve para el tooltip.
- * 3. Deja el array con 1 a 5 entradas. Si lo dejas vacío, la sección muestra
- *    una cuadrícula estática con estas mismas imágenes de ejemplo.
+ * Puedes dejar estas entradas de ejemplo o poner una selección propia:
+ *  - `permalink`: enlace del post (https://www.instagram.com/p/XXXX/ o /reel/XXXX/)
+ *    o, como aquí, el perfil.
+ *  - `image`: ruta a una miniatura en public/images/ (cuadrada, < 200 KB).
+ *  - `alt`: texto alternativo en español (lo lee el lector de pantalla).
+ *  - `caption`: texto breve opcional para el tooltip.
+ * Deja entre 1 y 5 entradas.
  *
- * MODO WIDGET EN VIVO (opcional, "últimas publicaciones" automáticas):
- * define la variable de entorno VITE_INSTAGRAM_WIDGET (ver README) y el
- * componente cargará un contenedor para un embed de Behold.so / LightWidget
- * en lugar de este carrusel curado.
+ * MODO WIDGET EN VIVO (opcional): si defines VITE_INSTAGRAM_WIDGET (ver README)
+ * el componente usa un embed de terceros y NADA de esto (ni el scraping ni esta
+ * lista) se aplica.
  * ---------------------------------------------------------------------------
  *
- * NOTA: las entradas de abajo son PLACEHOLDERS. El `permalink` apunta al perfil
- * (no a un post concreto) y las imágenes son las 5 promos que ya venían en el
- * repositorio. Reemplázalas siguiendo los pasos anteriores.
+ * NOTA: el `permalink` de abajo apunta al perfil (no a un post concreto) y las
+ * imágenes son las 5 promos que ya venían en el repositorio.
  */
 
 const instagramPosts = [

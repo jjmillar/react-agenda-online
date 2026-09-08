@@ -60,6 +60,62 @@
   background-color: rgba(255, 255, 255, 0.9);
   color: var(--text);
 }
+.ig__thumb-badge {
+  position: absolute;
+  left: var(--space-3);
+  bottom: var(--space-3);
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  background-color: rgba(21, 35, 63, 0.72);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Esqueleto mientras se obtienen las publicaciones en vivo */
+.ig__skeletons {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+@media (min-width: 640px) {
+  .ig__skeletons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .ig__skeletons {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.ig__skeleton {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);
+  background: linear-gradient(
+    100deg,
+    var(--surface-alt) 30%,
+    var(--border) 50%,
+    var(--surface-alt) 70%
+  );
+  background-size: 200% 100%;
+  animation: ig-shimmer 1.4s ease-in-out infinite;
+}
+@keyframes ig-shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ig__skeleton {
+    animation: none;
+  }
+}
 
 .ig__controls {
   display: flex;
@@ -82,32 +138,6 @@
 .ig__nav:hover {
   border-color: var(--primary);
   background-color: var(--surface-alt);
-}
-
-/* Cuadrícula estática de reserva */
-.ig__grid {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-3);
-}
-@media (min-width: 640px) {
-  .ig__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-@media (min-width: 1024px) {
-  .ig__grid {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
-.ig__grid img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: var(--radius-md);
 }
 
 /* Contenedor del widget en vivo */

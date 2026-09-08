@@ -12,7 +12,10 @@ secundarias: WhatsApp e Instagram.
 
 - [Vite 4](https://vitejs.dev/) + [React 18](https://react.dev/)
 - Sass (`.scss`) para estilos, con tokens de diseño en custom properties
+  (paleta derivada del logotipo)
 - [Swiper 11](https://swiperjs.com/) para el carrusel de Instagram
+- Una función serverless de Netlify (`netlify/functions/instagram.mjs`) para
+  traer las últimas publicaciones de Instagram al cargar la página
 - Sin librerías de iconos ni scripts de terceros (los iconos son SVG en línea)
 
 ## Cómo ejecutar
@@ -35,7 +38,7 @@ src/
     site.js             URLs de acción (reserva, WhatsApp, Instagram) y navegación
     treatments.js       Menú de tratamientos (datos)
     cities.js           Ciudades y direcciones de las sedes itinerantes
-    instagramPosts.js   Publicaciones curadas del carrusel de Instagram
+    instagramPosts.js   Lista de RESERVA del carrusel (si el scraping en vivo falla)
   hooks/
     useScrollReveal.js  Revelado al hacer scroll (IntersectionObserver + reduced-motion)
     useHeroPassed.js    Detecta cuándo se pasó el hero (para los CTA flotantes)
@@ -50,7 +53,7 @@ src/
     how-it-works/      "Cómo funciona" (4 pasos)
     cta-band/          Franja de CTA de media página
     cities/            "Ciudades que visitamos"
-    instagram/         InstagramCarousel (modo curado o widget en vivo)
+    instagram/         InstagramCarousel (scraping en vivo + reserva, o widget)
     faq/              Preguntas frecuentes (<details>/<summary>)
     final-cta/         CTA final
     footer/           Footer
@@ -58,6 +61,10 @@ src/
     whatsapp-fab/      Botón flotante de WhatsApp (escritorio)
   pages/
     Home.jsx           Compone todas las secciones
+netlify/
+  functions/
+    instagram.mjs      Trae las últimas publicaciones de Instagram (server-side)
+netlify.toml           Build, directorio de funciones y redirección SPA
 ```
 
 ### Dónde cambiar el contenido
@@ -67,38 +74,49 @@ src/
 | URL de la agenda, WhatsApp, Instagram | `src/config/site.js`           |
 | Tratamientos y precios                | `src/config/treatments.js`     |
 | Ciudades y direcciones                | `src/config/cities.js`         |
-| Publicaciones de Instagram            | `src/config/instagramPosts.js` |
+| Instagram (reserva / nº de posts)     | `src/config/instagramPosts.js`, `netlify/functions/instagram.mjs` |
 | Colores, tipografías, espaciados      | `src/styles/_tokens.scss`      |
 | Textos del hero / FAQ / pasos         | dentro de cada componente      |
 
 ## Carrusel de Instagram
 
-Tiene **dos modos**.
+### 1. Modo por defecto — scraping en vivo al cargar la página
 
-### 1. Modo curado (por defecto)
+Al montar, `InstagramCarousel` pide `/.netlify/functions/instagram`. Esa función
+serverless (`netlify/functions/instagram.mjs`) obtiene **del lado del servidor**
+las 5 publicaciones más recientes de `@girardiclinica` y las devuelve como JSON
+(con las miniaturas embebidas en `data:` URI). Así el carrusel muestra siempre
+lo último que se publicó, sin intervención manual.
 
-Lee `src/config/instagramPosts.js`: un array de hasta 5 objetos
-`{ id, permalink, image, alt, caption }`. Muestra un carrusel de miniaturas;
-al hacer clic se abre el `permalink` en una pestaña nueva. Si el array está
-vacío, se muestra una cuadrícula estática con las mismas imágenes.
+- El navegador **no** puede hacer esto directamente: Instagram no envía
+  cabeceras CORS y responde con muro de login sin sesión. Por eso va en una
+  función.
+- La respuesta se **cachea en el CDN de Netlify ~15 min** (`s-maxage=900`) para
+  no gatillar el rate-limit de Instagram.
+- No se usa el SDK oficial de Instagram ni ningún script de terceros.
 
-**Para poner las 5 publicaciones reales más recientes:**
+**Requiere Netlify** (o `netlify dev` en local). Con `npm run dev` a secas la
+ruta de la función no existe y se usa la lista de reserva (ver abajo).
 
-1. Abre `https://www.instagram.com/girardiclinica/` con la sesión iniciada.
-2. Por cada post: copia su enlace (`.../p/XXXX/` o `.../reel/XXXX/`) al campo
-   `permalink`.
-3. Guarda una miniatura del post en `public/images/instagram/` (cuadrada,
-   1080×1080, < 200 KB) y apunta `image` a `/images/instagram/post-1.jpg`.
-4. Escribe un `alt` descriptivo en español y, opcionalmente, un `caption` corto.
+```bash
+npm i -g netlify-cli   # una vez
+netlify dev            # levanta Vite + las funciones en local
+```
 
-Las instrucciones completas están también al inicio del propio archivo de
-configuración.
+#### Si Instagram bloquea la IP del servidor
 
-### 2. Modo widget en vivo (opcional, "últimas publicaciones" automáticas)
+Instagram limita con dureza estas peticiones y puede responder `429` a las IPs
+de Netlify. Si la función no consigue datos, devuelve `{ ok: false, posts: [] }`
+y el componente usa **`src/config/instagramPosts.js`** (lista de reserva editable
+a mano). La página nunca se rompe por esto.
+
+Para un feed en vivo 100 % fiable sin depender del scraping, usa el modo widget.
+
+### 2. Modo widget en vivo (opcional, alternativa robusta)
 
 Si defines la variable de entorno `VITE_INSTAGRAM_WIDGET`, el componente
-renderiza un contenedor para un embed de terceros que se actualiza solo, en vez
-del carrusel curado. No se usa el SDK oficial de Instagram.
+renderiza un embed de terceros que se actualiza solo y se salta tanto el
+scraping como la lista de reserva.
 
 Crea un archivo `.env` (o `.env.local`) en la raíz:
 
@@ -109,11 +127,6 @@ VITE_INSTAGRAM_WIDGET=tu_id_de_behold
 # Opción B — LightWidget u otro: usa la URL del iframe (debe empezar por http)
 VITE_INSTAGRAM_WIDGET=https://lightwidget.com/widgets/xxxxxxxx.html
 ```
-
-- Si el valor **empieza por `http`**, se trata como URL de un `<iframe>`
-  (LightWidget y similares).
-- En caso contrario, se trata como **ID de feed de Behold.so** y se inyecta su
-  script (`https://w.behold.so/widget.js`) mediante un `useEffect`.
 
 Reconstruye (`npm run build`) después de cambiar el `.env`.
 
@@ -133,10 +146,13 @@ La investigación disponible es limitada. Antes de publicar hay que conseguir de
 la clínica:
 
 - **Fotos reales** de la clínica, del equipo y de pacientes (con consentimiento).
-  Ahora el hero y el carrusel usan las 5 imágenes promocionales que ya estaban
-  en el repositorio.
-- **Publicaciones reales de Instagram** para el carrusel (permalinks + miniaturas).
-  Ver "Carrusel de Instagram".
+  Ahora el hero usa una de las imágenes promocionales que ya estaban en el
+  repositorio (el carrusel de Instagram sí trae fotos reales en vivo).
+- **Instagram**: el carrusel ya trae las últimas publicaciones automáticamente
+  vía la función serverless. Sólo hay que actuar si Instagram bloquea la IP de
+  Netlify de forma persistente: en ese caso, activar el modo widget
+  (`VITE_INSTAGRAM_WIDGET`) o mantener a mano la lista de reserva
+  `src/config/instagramPosts.js`. Ver "Carrusel de Instagram".
 - **Testimonios / reseñas**: no se incluyó ninguna sección de opiniones porque
   no hay datos verificados. No inventar reseñas ni valoraciones.
 - **Equipo / profesionales**: nombres, cargos, credenciales y registro
