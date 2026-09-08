@@ -1,21 +1,11 @@
 .home {
-  height: 100svh;
-  width: 100svw;
-
-  display: block;
+  overflow-x: clip;
 }
 
-.articles {
-  height: 90%;
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-article {
-  height: 85%;
-  scroll-snap-align: center;
+/* Centinela invisible al final del hero para el IntersectionObserver */
+.home__sentinel {
+  width: 1px;
+  height: 1px;
+  margin-top: -1px;
+  pointer-events: none;
 }

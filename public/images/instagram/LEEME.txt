@@ -1,0 +1,10 @@
+Guarda aquí las miniaturas de las publicaciones reales de Instagram que quieras
+mostrar en el carrusel de la landing (por ejemplo: post-1.jpg, post-2.jpg ...).
+
+Recomendado: imagen cuadrada 1080x1080, optimizada a menos de 200 KB.
+
+Luego edita src/config/instagramPosts.js y apunta cada entrada "image" a
+"/images/instagram/post-1.jpg" (y su "permalink" al enlace real del post).
+
+Ver instrucciones completas al inicio de src/config/instagramPosts.js
+y en la sección "Carrusel de Instagram" del README.

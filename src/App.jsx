@@ -1,12 +1,12 @@
-import Home from './pages/Home.jsx';
-import './App.scss'
+import Home from "./pages/Home.jsx";
+import "./App.scss";
 
 function App() {
   return (
     <div className="App">
       <Home />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

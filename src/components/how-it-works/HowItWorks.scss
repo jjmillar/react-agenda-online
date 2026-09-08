@@ -1,0 +1,67 @@
+.how__steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  counter-reset: none;
+}
+
+@media (min-width: 640px) {
+  .how__steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 980px) {
+  .how__steps {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.how__step {
+  position: relative;
+  padding: var(--space-6);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.how__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: var(--space-4);
+  border-radius: var(--radius-pill);
+  background-color: var(--surface-alt);
+  color: var(--primary);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.how__step h3 {
+  font-size: 1.05rem;
+  margin-bottom: var(--space-2);
+}
+
+.how__step p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Conector sutil entre pasos en escritorio */
+@media (min-width: 980px) {
+  .how__step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: calc(var(--space-6) + 20px);
+    right: calc(var(--space-5) * -0.5 - 1px);
+    width: var(--space-5);
+    height: 1px;
+    background-color: var(--border);
+  }
+}
