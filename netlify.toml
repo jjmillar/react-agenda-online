@@ -1,0 +1,18 @@
+# Configuración de Netlify.
+# El sitio es un SPA estático (Vite) + una función serverless que obtiene las
+# últimas publicaciones de Instagram al momento de cargar la página.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[functions]
+  # Directorio de funciones y empaquetador.
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# SPA: cualquier ruta que no sea un archivo ni una función cae en index.html.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y } from "swiper/modules";
 
-import instagramPosts from "../../config/instagramPosts";
+import fallbackPosts from "../../config/instagramPosts";
 import { INSTAGRAM_URL, INSTAGRAM_HANDLE, NEW_TAB_HINT } from "../../config/site";
 import { IconChevronLeft, IconChevronRight, IconInstagram } from "../icons/Icons";
 
@@ -11,30 +11,29 @@ import "swiper/css/navigation";
 import "./InstagramCarousel.scss";
 
 /**
- * Sección de Instagram — dos modos:
+ * Sección de Instagram.
  *
- * 1. MODO CURADO (por defecto): lee src/config/instagramPosts.js y muestra un
- *    carrusel de miniaturas. Al hacer clic se abre el `permalink` del post en
- *    una pestaña nueva. No usa el SDK de Instagram (protege el rendimiento).
- *    Si el array está vacío, se muestra una cuadrícula estática de reserva.
+ * MODO POR DEFECTO — scraping en vivo al cargar la página:
+ * al montar, el componente pide `/.netlify/functions/instagram`, que obtiene
+ * del lado del servidor las 5 publicaciones más recientes de @girardiclinica
+ * (el navegador no puede por CORS ni por el muro de login de Instagram). Así
+ * el carrusel muestra siempre lo último que se publicó.
+ * Si la función falla (Instagram bloquea la IP, rate-limit, sin red), se usa
+ * la lista de reserva de `src/config/instagramPosts.js`.
  *
- * 2. MODO WIDGET EN VIVO: si `import.meta.env.VITE_INSTAGRAM_WIDGET` está
- *    definido, se renderiza un contenedor para un embed de Behold.so o
- *    LightWidget en lugar del carrusel curado. Ver README.
- *    - Si el valor empieza por "http", se trata como URL de iframe (LightWidget).
- *    - En caso contrario, se trata como ID de feed de Behold.so y se inyecta
- *      su script.
+ * MODO WIDGET EN VIVO (opcional): si `VITE_INSTAGRAM_WIDGET` está definido, se
+ * renderiza un embed de terceros (Behold.so / LightWidget) en lugar de todo lo
+ * anterior. Ver README.
  */
 
+const ENDPOINT = "/.netlify/functions/instagram";
 const WIDGET_ID = import.meta.env.VITE_INSTAGRAM_WIDGET;
 
 function LiveWidget({ value }) {
-  const containerRef = useRef(null);
   const isUrl = /^https?:\/\//i.test(value);
 
   useEffect(() => {
     if (isUrl) return;
-    // Behold.so: inyectar el script una sola vez.
     const SRC = "https://w.behold.so/widget.js";
     if (!document.querySelector(`script[src="${SRC}"]`)) {
       const s = document.createElement("script");
@@ -57,39 +56,125 @@ function LiveWidget({ value }) {
       />
     );
   }
-
   return (
-    <div ref={containerRef} className="ig__widget">
-      {/* Behold.so renderiza el feed dentro de este contenedor */}
+    <div className="ig__widget">
       <div data-behold-id={value} />
     </div>
   );
 }
 
-function StaticGrid({ posts }) {
+function Skeleton() {
   return (
-    <ul className="ig__grid">
-      {posts.map((post) => (
-        <li key={post.id}>
-          <a href={post.permalink} target="_blank" rel="noopener">
-            <img
-              src={post.image}
-              alt={post.alt}
-              width="480"
-              height="480"
-              loading="lazy"
-              decoding="async"
-            />
-          </a>
-        </li>
-      ))}
-    </ul>
+    <div className="ig__carousel" aria-hidden="true">
+      <ul className="ig__skeletons">
+        {Array.from({ length: 4 }).map((_, i) => (
+          <li key={i} className="ig__skeleton" />
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function Carousel({ posts }) {
+  const swiperRef = useRef(null);
+
+  return (
+    <div className="ig__carousel">
+      <Swiper
+        modules={[Navigation, A11y]}
+        onSwiper={(s) => (swiperRef.current = s)}
+        spaceBetween={16}
+        slidesPerView={1.2}
+        breakpoints={{
+          640: { slidesPerView: 3, spaceBetween: 20 },
+          1024: { slidesPerView: 4, spaceBetween: 24 },
+        }}
+        a11y={{
+          containerRoleDescriptionMessage: "carrusel",
+          slideRole: "group",
+        }}
+        className="ig__swiper"
+      >
+        {posts.map((post) => (
+          <SwiperSlide key={post.id}>
+            <a
+              className="ig__thumb"
+              href={post.permalink}
+              target="_blank"
+              rel="noopener"
+              aria-label={`${post.caption || "Ver publicación"} en Instagram (${NEW_TAB_HINT})`}
+              title={post.caption || undefined}
+            >
+              <img
+                src={post.image}
+                alt={post.alt}
+                width="480"
+                height="480"
+                loading="lazy"
+                decoding="async"
+              />
+              <span className="ig__thumb-glyph" aria-hidden="true">
+                <IconInstagram size={18} />
+              </span>
+              {post.isVideo && (
+                <span className="ig__thumb-badge" aria-hidden="true">
+                  Reel
+                </span>
+              )}
+            </a>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      <div className="ig__controls">
+        <button
+          type="button"
+          className="ig__nav"
+          aria-label="Publicación anterior"
+          onClick={() => swiperRef.current?.slidePrev()}
+        >
+          <IconChevronLeft />
+        </button>
+        <button
+          type="button"
+          className="ig__nav"
+          aria-label="Publicación siguiente"
+          onClick={() => swiperRef.current?.slideNext()}
+        >
+          <IconChevronRight />
+        </button>
+      </div>
+    </div>
   );
 }
 
 const InstagramCarousel = () => {
-  const [swiper, setSwiper] = useState(null);
-  const posts = instagramPosts || [];
+  // null = cargando; array = listo (en vivo o de reserva)
+  const [posts, setPosts] = useState(WIDGET_ID ? [] : null);
+
+  useEffect(() => {
+    if (WIDGET_ID) return;
+    let alive = true;
+
+    (async () => {
+      try {
+        const res = await fetch(ENDPOINT, { headers: { accept: "application/json" } });
+        const data = await res.json();
+        if (!alive) return;
+        if (data?.ok && Array.isArray(data.posts) && data.posts.length) {
+          setPosts(data.posts);
+        } else {
+          setPosts(fallbackPosts);
+        }
+      } catch {
+        if (alive) setPosts(fallbackPosts);
+      }
+    })();
+
+    return () => {
+      alive = false;
+    };
+  }, []);
 
   return (
     <section className="section instagram" id="instagram">
@@ -118,70 +203,10 @@ const InstagramCarousel = () => {
         <div className="instagram__body reveal">
           {WIDGET_ID ? (
             <LiveWidget value={WIDGET_ID} />
-          ) : posts.length === 0 ? (
-            <StaticGrid posts={instagramPosts} />
+          ) : posts === null ? (
+            <Skeleton />
           ) : (
-            <div className="ig__carousel">
-              <Swiper
-                modules={[Navigation, A11y]}
-                onSwiper={setSwiper}
-                spaceBetween={16}
-                slidesPerView={1.2}
-                breakpoints={{
-                  640: { slidesPerView: 3, spaceBetween: 20 },
-                  1024: { slidesPerView: 4, spaceBetween: 24 },
-                }}
-                a11y={{
-                  containerRoleDescriptionMessage: "carrusel",
-                  slideRole: "group",
-                }}
-                className="ig__swiper"
-              >
-                {posts.map((post) => (
-                  <SwiperSlide key={post.id}>
-                    <a
-                      className="ig__thumb"
-                      href={post.permalink}
-                      target="_blank"
-                      rel="noopener"
-                      aria-label={`${post.caption || "Ver publicación"} en Instagram (${NEW_TAB_HINT})`}
-                      title={post.caption || undefined}
-                    >
-                      <img
-                        src={post.image}
-                        alt={post.alt}
-                        width="480"
-                        height="480"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                      <span className="ig__thumb-glyph" aria-hidden="true">
-                        <IconInstagram size={18} />
-                      </span>
-                    </a>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-
-              <div className="ig__controls">
-                <button
-                  type="button"
-                  className="ig__nav"
-                  aria-label="Publicación anterior"
-                  onClick={() => swiper && swiper.slidePrev()}
-                >
-                  <IconChevronLeft />
-                </button>
-                <button
-                  type="button"
-                  className="ig__nav"
-                  aria-label="Publicación siguiente"
-                  onClick={() => swiper && swiper.slideNext()}
-                >
-                  <IconChevronRight />
-                </button>
-              </div>
-            </div>
+            <Carousel posts={posts} />
           )}
         </div>
       </div>

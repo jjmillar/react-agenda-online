@@ -1,28 +1,29 @@
 /**
  * Tokens de diseño — Estética Girardi
- * Paleta "Cool Clinical Spa" (opción B del brief de UX).
- * Todos los valores se exponen como custom properties para poder ajustarlos
- * en un solo lugar. No usar hex sueltos en los componentes: siempre var(--...).
+ * Paleta derivada del logotipo (azules): marino #1f3d79, azul real #2c56a3,
+ * celeste #41abe2. Todos los valores se exponen como custom properties para
+ * ajustarlos en un solo lugar. No usar hex sueltos en los componentes:
+ * siempre var(--...).
  */
 
 :root {
   /* ---------- Color ---------- */
-  --bg: #f6f8f8;
+  --bg: #f4f7fc; /* azul muy pálido y frío */
   --surface: #ffffff;
-  --surface-alt: #eaf0ef;
-  --text: #1f2a2a;
-  --text-muted: #5b6b6b;
-  --primary: #3e7c74;
-  --primary-hover: #2f625b;
-  --accent: #a9c7c0; /* decorativo: líneas e iconos, nunca texto */
-  --secondary: #8c7b93; /* decorativo: etiquetas y pequeños acentos */
-  --border: #dce6e4;
-  --success: #3e7c74;
-  --focus-ring: #2f625b;
+  --surface-alt: #e8f0fb; /* franjas de sección alternas */
+  --text: #15233f; /* marino carbón (más oscuro que el logo para contraste AA) */
+  --text-muted: #526182; /* gris azulado para texto secundario (~5.6:1) */
+  --primary: #2c56a3; /* azul real del logo — relleno de CTA, texto blanco ~7:1 */
+  --primary-hover: #1f3d79; /* marino del logo */
+  --accent: #41abe2; /* celeste del logo — decorativo: líneas e iconos, nunca texto */
+  --secondary: #6b8cc4; /* azul real suave — etiquetas y pequeños acentos */
+  --border: #d3e0f2; /* filete azul pálido */
+  --success: #2e7d51; /* verde para estados de confirmación */
+  --focus-ring: #1f3d79;
   --whatsapp: #25d366;
 
   /* Sombra tintada con el RGB de --text (sin negro puro) */
-  --shadow-rgb: 31, 42, 42;
+  --shadow-rgb: 21, 35, 63;
   --shadow-xs: 0 1px 2px rgba(var(--shadow-rgb), 0.04);
   --shadow-sm: 0 4px 16px rgba(var(--shadow-rgb), 0.06);
   --shadow-md: 0 12px 32px rgba(var(--shadow-rgb), 0.1);
