@@ -152,6 +152,10 @@
 @media (max-width: 640px) {
   .instagram__head {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+  }
+  .ig__controls {
+    justify-content: center;
   }
 }

@@ -46,10 +46,10 @@ const Hero = () => (
 
       <div className="hero__media">
         <img
-          src="/images/3.jpg"
-          width="1080"
-          height="1080"
-          alt="Sesión de tratamiento estético en Estética Girardi"
+          src="/images/hero.jpg"
+          width="1200"
+          height="800"
+          alt="Sesión de tratamiento facial estético"
           fetchpriority="high"
           decoding="async"
         />

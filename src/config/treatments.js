@@ -1,9 +1,10 @@
 /**
  * Menú de tratamientos — Estética Girardi.
  * Fuente: investigación sobre la agenda online (app.agendapia.com/girardiclinica)
- * y la bio de Instagram. Los precios sólo se publican para la toxina botulínica
- * (Dysport), que son tarifas reales de la agenda. El resto se cotiza en la
- * valoración presencial.
+ * y la bio de Instagram.
+ *
+ * No se muestran precios en la web: el valor de cada tratamiento se entrega en
+ * la valoración según la zona, el producto y el número de sesiones.
  *
  * Algunas descripciones son redacciones estándar correctas para el tipo de
  * tratamiento, pero NO provienen de textos propios de la clínica. Están marcadas
@@ -17,15 +18,6 @@ const treatments = [
     tagline: "Arrugas de expresión",
     description:
       "Relaja de forma temporal los músculos que marcan el entrecejo, la frente y las patas de gallo, suavizando el rostro y previniendo nuevas líneas. Se aplica marca Dysport en una sesión de unos 30 minutos, con retoque incluido a partir del día 14. Los resultados se ven en pocos días y duran entre 3 y 4 meses.",
-    prices: [
-      { label: "1 zona", value: "$49.900" },
-      { label: "2 zonas", value: "$69.900" },
-      { label: "3 zonas", value: "$89.900" },
-      { label: "5 zonas", value: "$99.900" },
-      { label: "6 zonas", value: "$129.900" },
-      { label: "7 zonas", value: "$149.900" },
-    ],
-    priceNote: "Retoque incluido a partir del día 14.",
   },
   {
     id: "acido-hialuronico",

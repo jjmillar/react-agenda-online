@@ -2,13 +2,12 @@ import "./Faq.scss";
 
 /**
  * Preguntas frecuentes con <details>/<summary> nativos (accesible y sin JS).
- * Sólo se mencionan precios reales (rango de toxina botulínica); el resto se
- * cotiza en la valoración.
+ * La web no muestra precios: el valor se entrega en la valoración.
  */
 const FAQS = [
   {
     q: "¿Cuánto cuestan los tratamientos?",
-    a: "La toxina botulínica (Dysport) tiene tarifas publicadas, desde $49.900 por 1 zona hasta $149.900 por 7 zonas, con retoque incluido a partir del día 14. El precio del resto de los tratamientos depende de la zona, el producto y el número de sesiones, y se entrega en la valoración.",
+    a: "El valor de cada tratamiento depende de la zona, el producto y el número de sesiones. Te entregamos el detalle en la valoración o por WhatsApp, sin compromiso.",
   },
   {
     q: "¿Duele?",

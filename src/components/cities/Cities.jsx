@@ -4,10 +4,9 @@ import { IconExternal, IconPin } from "../icons/Icons";
 import "./Cities.scss";
 
 /**
- * "Ciudades que visitamos": la clínica es itinerante. Cada tarjeta muestra la
- * dirección de la sede y enlaza a la agenda online (las fechas de gira se
- * anuncian en Instagram y en la agenda). Sin mapa embebido: sólo un enlace de
- * búsqueda a Google Maps por si el usuario lo necesita.
+ * "Ciudades que visitamos": la clínica es itinerante. Sólo Antofagasta tiene
+ * dirección fija; en el resto, el lugar cambia según la gira y se confirma al
+ * reservar. Cada tarjeta enlaza a la agenda online.
  */
 const Cities = () => (
   <section className="section section--alt cities" id="ciudades">
@@ -32,7 +31,13 @@ const Cities = () => (
               <IconPin size={18} />
               {city.name}
             </h3>
-            <p className="city-card__address">{city.address}</p>
+            {city.address ? (
+              <p className="city-card__address">{city.address}</p>
+            ) : (
+              <p className="city-card__address city-card__address--tba">
+                La dirección varía según la gira y se confirma al reservar.
+              </p>
+            )}
 
             <div className="city-card__links">
               <a
@@ -43,15 +48,17 @@ const Cities = () => (
               >
                 Reservar en {city.name} <IconExternal />
               </a>
-              <a
-                className="city-card__maps"
-                href={mapsSearchUrl(city)}
-                target="_blank"
-                rel="noopener"
-                aria-label={`Ver ${city.name} en Google Maps (${NEW_TAB_HINT})`}
-              >
-                Ver en Google Maps
-              </a>
+              {city.address && (
+                <a
+                  className="city-card__maps"
+                  href={mapsSearchUrl(city)}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label={`Ver ${city.name} en Google Maps (${NEW_TAB_HINT})`}
+                >
+                  Ver en Google Maps
+                </a>
+              )}
             </div>
           </li>
         ))}

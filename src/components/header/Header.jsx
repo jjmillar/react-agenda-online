@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
 import logo from "../../assets/common/logo.svg";
 import BookingButton from "../booking-button/BookingButton";
-import { IconInstagram } from "../icons/Icons";
-import { INSTAGRAM_URL, NAV_LINKS, NEW_TAB_HINT } from "../../config/site";
+import { NAV_LINKS } from "../../config/site";
 import "./Header.scss";
 
 /**
  * Header fijo: logo + nombre + navegación por anclas + botón de reserva
- * siempre visible + icono de Instagram.
- * En móvil la navegación se colapsa en un menú hamburguesa (CSS + mínimo JS);
- * el botón "Reservar cita" permanece visible.
+ * siempre visible. En móvil la navegación se colapsa en un menú hamburguesa
+ * (CSS + mínimo JS); el botón "Reservar cita" permanece visible.
  */
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -48,16 +46,6 @@ const Header = () => {
         </nav>
 
         <div className="site-header__actions">
-          <a
-            className="site-header__ig"
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noopener"
-            aria-label={`Instagram de Estética Girardi (${NEW_TAB_HINT})`}
-          >
-            <IconInstagram />
-          </a>
-
           <BookingButton className="site-header__cta">Reservar cita</BookingButton>
 
           <button
@@ -85,14 +73,6 @@ const Header = () => {
               {link.label}
             </a>
           ))}
-          <a
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noopener"
-            onClick={() => setMenuOpen(false)}
-          >
-            Instagram
-          </a>
         </nav>
       </div>
     </header>

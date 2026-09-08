@@ -72,7 +72,7 @@ netlify.toml           Build, directorio de funciones y redirección SPA
 | Qué                                   | Archivo                        |
 | ------------------------------------- | ------------------------------ |
 | URL de la agenda, WhatsApp, Instagram | `src/config/site.js`           |
-| Tratamientos y precios                | `src/config/treatments.js`     |
+| Tratamientos (sin precios)            | `src/config/treatments.js`     |
 | Ciudades y direcciones                | `src/config/cities.js`         |
 | Instagram (reserva / nº de posts)     | `src/config/instagramPosts.js`, `netlify/functions/instagram.mjs` |
 | Colores, tipografías, espaciados      | `src/styles/_tokens.scss`      |
@@ -146,8 +146,9 @@ La investigación disponible es limitada. Antes de publicar hay que conseguir de
 la clínica:
 
 - **Fotos reales** de la clínica, del equipo y de pacientes (con consentimiento).
-  Ahora el hero usa una de las imágenes promocionales que ya estaban en el
-  repositorio (el carrusel de Instagram sí trae fotos reales en vivo).
+  Ahora el hero y la lista de reserva del carrusel usan fotografías libres de
+  derechos de Unsplash (ver `public/images/CREDITS.txt`); conviene sustituirlas
+  por material propio. El carrusel de Instagram sí trae fotos reales en vivo.
 - **Instagram**: el carrusel ya trae las últimas publicaciones automáticamente
   vía la función serverless. Sólo hay que actuar si Instagram bloquea la IP de
   Netlify de forma persistente: en ese caso, activar el modo widget
@@ -159,15 +160,18 @@ la clínica:
   sanitario. No hay sección de equipo por falta de datos verificados.
 - **Teléfono / WhatsApp definitivo**: se usó `+56 9 6210 5309` (confirmado por el
   sitio anterior). Hay otros dos números en circulación sin confirmar.
-- **Precios** más allá de la toxina botulínica (Dysport), que son los únicos
-  publicados en la agenda. El resto se marca como "se cotiza en la valoración".
+- **Precios**: por decisión, la web **no muestra ningún precio**. Todo el valor
+  se entrega en la valoración o por WhatsApp. Si en algún momento se quisieran
+  publicar, el sitio de partida es `src/config/treatments.js` y la FAQ de
+  `src/components/faq/Faq.jsx`.
 - **Descripciones de tratamientos** marcadas con
   `TODO: validar descripción con la clínica` en `src/config/treatments.js`
   (Morpheus 8, HIFU, skinbooster, bioestimuladores, polinucleótidos, vitaminas):
   son redacciones estándar correctas para el tipo de tratamiento, pero no son
   textos propios de la clínica. Confirmar también si el equipo de HIFU es "22D".
-- **Direcciones por ciudad** (`src/config/cities.js`): revisar tildes, número de
-  oficina/departamento y vigencia; las sedes pueden rotar según la gira.
+- **Dirección de Antofagasta** (`src/config/cities.js`): es la única sede con
+  dirección fija que se publica; revisar tildes y numeración. El resto de
+  ciudades no lleva dirección a propósito (varía según la gira).
 - **Fechas de las giras** por ciudad: hoy se remite a Instagram y a la agenda.
 - **Formas de pago** (FAQ): confirmar medios aceptados y si hay cuotas /
   financiamiento (marcado con `TODO` en `src/components/faq/Faq.jsx`).

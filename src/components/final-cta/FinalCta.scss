@@ -44,3 +44,14 @@
   color: var(--text);
   text-decoration: underline;
 }
+
+@media (max-width: 520px) {
+  .final-cta__inner > .booking-btn {
+    display: flex;
+    width: 100%;
+  }
+  .final-cta__secondary {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+}

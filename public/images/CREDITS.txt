@@ -1,0 +1,12 @@
+Imágenes de este directorio
+===========================
+
+hero.jpg, ig-1.jpg … ig-5.jpg
+  Fotografías de Unsplash (https://unsplash.com).
+  Licencia Unsplash: uso gratuito, comercial y sin atribución obligatoria.
+  Son imágenes de relleno acordes a estética y belleza mientras la clínica
+  no entregue fotos propias ni haya publicaciones reales de Instagram.
+
+El carrusel de Instagram obtiene las publicaciones en vivo desde
+/.netlify/functions/instagram; ig-1…ig-5.jpg sólo se usan como reserva
+(ver src/config/instagramPosts.js).

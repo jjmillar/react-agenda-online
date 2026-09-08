@@ -59,6 +59,9 @@ const Footer = () => {
           <a href="#">Aviso legal</a>
           <a href="#">Política de privacidad</a>
         </p>
+        <p className="site-footer__credit">
+          Sitio desarrollado por <strong>JJ Studio</strong>.
+        </p>
       </div>
     </footer>
   );

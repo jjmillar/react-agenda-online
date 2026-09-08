@@ -99,6 +99,12 @@ button {
   padding-inline: var(--space-5);
 }
 
+@media (max-width: 480px) {
+  .container {
+    padding-inline: var(--space-4);
+  }
+}
+
 .section {
   padding-block: var(--section-pad);
 }
@@ -110,6 +116,22 @@ button {
 .section__head {
   max-width: var(--measure);
   margin-bottom: var(--space-7);
+}
+
+/* En móvil, los encabezados y párrafos sueltos de sección van centrados
+   y el ritmo vertical se ajusta para no dejar tanto aire */
+@media (max-width: 640px) {
+  .section {
+    padding-block: var(--space-7);
+  }
+  .section__head {
+    margin-inline: auto;
+    margin-bottom: var(--space-6);
+    text-align: center;
+  }
+  .section__lead {
+    margin-inline: auto;
+  }
 }
 
 .section__eyebrow {
