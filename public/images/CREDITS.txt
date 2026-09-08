@@ -1,11 +1,20 @@
 Imágenes de este directorio
 ===========================
 
-hero.jpg, ig-1.jpg … ig-5.jpg
-  Fotografías de Unsplash (https://unsplash.com).
-  Licencia Unsplash: uso gratuito, comercial y sin atribución obligatoria.
-  Son imágenes de relleno acordes a estética y belleza mientras la clínica
-  no entregue fotos propias ni haya publicaciones reales de Instagram.
+Fotografías de Unsplash (https://unsplash.com).
+Licencia Unsplash: uso gratuito, comercial y sin atribución obligatoria.
+
+Muestran procedimientos acordes al menú real de la clínica —inyectables y
+aparatología (toxina botulínica, ácido hialurónico, Morpheus 8/microneedling,
+bioestimuladores)— no mascarillas ni cosmética facial. Son imágenes de relleno
+mientras la clínica no aporte material propio.
+
+  hero.jpg   unsplash photo-1713085085470-fba013d67e65  (aparatología facial)
+  ig-1.jpg   unsplash photo-1746708810803-722593e53772  (toxina botulínica)
+  ig-2.jpg   unsplash photo-1761819920857-7edc5e808fd3  (Morpheus 8 / microneedling)
+  ig-3.jpg   unsplash photo-1746017062285-13c77e29fc25  (ácido hialurónico, labios)
+  ig-4.jpg   unsplash photo-1761819922656-d1b77eef49c0  (bioestimuladores / hilos)
+  ig-5.jpg   unsplash photo-1761819921052-2c34973e012c  (inyección estética, frente)
 
 El carrusel de Instagram obtiene las publicaciones en vivo desde
 /.netlify/functions/instagram; ig-1…ig-5.jpg sólo se usan como reserva

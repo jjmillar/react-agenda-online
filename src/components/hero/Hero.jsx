@@ -49,7 +49,7 @@ const Hero = () => (
           src="/images/hero.jpg"
           width="1200"
           height="800"
-          alt="Sesión de tratamiento facial estético"
+          alt="Profesional realizando un tratamiento facial con aparatología en una paciente"
           fetchpriority="high"
           decoding="async"
         />
